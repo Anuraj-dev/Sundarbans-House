@@ -103,64 +103,56 @@
       <h2 class="section-title-xl">Study Resources <span class="tg">by Level</span></h2>
     </div>
 
-    <!-- SPLIT-VIEW ROW: Level cards | Subject list -->
-    <div class="sc-split-row" id="scSplitRow">
-
-      <!-- Level cards container -->
-      <div class="sc-levels-container" id="scLevelsContainer">
-        <div class="card-base rc sc-level-card" id="lvl-foundation" data-level="foundation">
-          <div class="sc-card-emoji">🌱</div>
-          <h3 class="sc-card-title">Foundation Level</h3>
-          <p class="desc sc-card-desc">Maths, English, Computational Thinking, Statistics, Python basics</p>
-          <div class="sc-card-stats">
-            <span class="sc-stat-badge">8 subjects</span>
-            <span class="sc-stat-badge">Notes + PYQs</span>
-          </div>
-          <span class="submit-btn sc-browse-btn">Browse Subjects →</span>
+    <!-- LEVEL CARDS: 3 in one row -->
+    <div class="sc-levels-grid" id="scLevelsContainer">
+      <div class="card-base rc sc-level-card" id="lvl-foundation" data-level="foundation">
+        <div class="sc-card-emoji">🌱</div>
+        <h3 class="sc-card-title">Foundation Level</h3>
+        <p class="desc sc-card-desc">Maths, English, Computational Thinking, Statistics, Python basics</p>
+        <div class="sc-card-stats">
+          <span class="sc-stat-badge">8 subjects</span>
+          <span class="sc-stat-badge">Notes + PYQs</span>
         </div>
-        <div class="card-base rc sc-level-card" id="lvl-diploma" data-level="diploma">
-          <div class="sc-card-emoji">📐</div>
-          <h3 class="sc-card-title">Diploma Level</h3>
-          <p class="desc sc-card-desc">DSA, DBMS, Machine Learning, App Development, Java and more</p>
-          <div class="sc-card-stats">
-            <span class="sc-stat-badge">11 subjects</span>
-            <span class="sc-stat-badge">Notes + PYQs</span>
-          </div>
-          <span class="submit-btn sc-browse-btn">Browse Subjects →</span>
-        </div>
-        <div class="card-base rc sc-level-card" id="lvl-bs" data-level="bs">
-          <div class="sc-card-emoji">🎓</div>
-          <h3 class="sc-card-title">BS Degree Level</h3>
-          <p class="desc sc-card-desc">Deep Learning, LLMs, NLP, CV, MLOps and more electives</p>
-          <div class="sc-card-stats">
-            <span class="sc-stat-badge">13 subjects</span>
-            <span class="sc-stat-badge">Notes + PYQs</span>
-          </div>
-          <span class="submit-btn sc-browse-btn" style="background:var(--accent);color:#000">Browse Subjects →</span>
-        </div>
+        <span class="submit-btn sc-browse-btn">Browse Subjects →</span>
       </div>
-
-      <!-- Subject list panel (hidden initially) -->
-      <div class="sc-subject-panel" id="scSubjectPanel">
-        <div class="sc-subject-panel-header">
-          <h3 id="scSubjectPanelTitle" style="font-family:Syne,sans-serif;font-weight:700;font-size:1.1rem;margin:0">Subjects</h3>
-          <button class="sc-back-btn" onclick="scReset()">← Back</button>
+      <div class="card-base rc sc-level-card" id="lvl-diploma" data-level="diploma">
+        <div class="sc-card-emoji">📐</div>
+        <h3 class="sc-card-title">Diploma Level</h3>
+        <p class="desc sc-card-desc">DSA, DBMS, Machine Learning, App Development, Java and more</p>
+        <div class="sc-card-stats">
+          <span class="sc-stat-badge">11 subjects</span>
+          <span class="sc-stat-badge">Notes + PYQs</span>
         </div>
-        <div class="sc-subject-list" id="scSubjectList"></div>
+        <span class="submit-btn sc-browse-btn">Browse Subjects →</span>
+      </div>
+      <div class="card-base rc sc-level-card" id="lvl-bs" data-level="bs">
+        <div class="sc-card-emoji">🎓</div>
+        <h3 class="sc-card-title">BS Degree Level</h3>
+        <p class="desc sc-card-desc">Deep Learning, LLMs, NLP, CV, MLOps and more electives</p>
+        <div class="sc-card-stats">
+          <span class="sc-stat-badge">13 subjects</span>
+          <span class="sc-stat-badge">Notes + PYQs</span>
+        </div>
+        <span class="submit-btn sc-browse-btn" style="background:var(--accent);color:#000">Browse Subjects →</span>
       </div>
     </div>
+
   </div>
 </section>
 
-<!-- ===== RESOURCE PANEL ===== -->
+<!-- ===== RESOURCE SECTION (badges + panel combined) ===== -->
 <section class="section rs" id="scResourceSection" style="display:none">
   <div class="container">
-    <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.5rem;flex-wrap:wrap">
-      <button onclick="scBackToSubjects()" class="sc-back-btn">← Subjects</button>
-      <span style="color:var(--text3);font-size:0.8rem">/</span>
-      <span id="scBreadcrumb" style="color:var(--accent);font-size:0.85rem;font-weight:600;letter-spacing:0.03em"></span>
+    <!-- Subject badge strip -->
+    <div class="sc-subject-strip" id="scSubjectStrip">
+      <div class="sc-strip-header">
+        <span class="sc-strip-label" id="scStripLabel">Subjects</span>
+        <button class="sc-back-btn" onclick="scReset()">← All Levels</button>
+      </div>
+      <div class="sc-badges-row" id="scSubjectList"></div>
     </div>
-    <div style="background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;min-height:420px" id="scPanel">
+    <!-- Notes / PYQ panel directly below badges -->
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:0 0 16px 16px;padding:2rem;min-height:420px;border-top:none" id="scPanel">
       <div class="sc-empty">
         <div style="font-size:3rem">📖</div>
         <p style="font-size:0.9rem">Select a subject to view resources</p>
@@ -411,26 +403,12 @@ document.addEventListener('DOMContentLoaded', () => dbRender('all'));
 <style>
 /* ===== STUDY CORNER STYLES ===== */
 
-/* Split row layout */
-.sc-split-row {
-  display:flex;
+/* Level cards: 3 in one horizontal row */
+.sc-levels-grid {
+  display:grid;
+  grid-template-columns:repeat(3, 1fr);
   gap:1.5rem;
-  align-items:stretch;
-  min-height:380px;
-  transition:all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-/* Level cards container */
-.sc-levels-container {
-  display:flex;
-  flex-direction:column;
-  gap:1rem;
-  flex:1;
-  transition:all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.sc-levels-container.collapsed {
-  flex:0 0 280px;
-  max-width:280px;
+  transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Level cards */
@@ -439,9 +417,8 @@ document.addEventListener('DOMContentLoaded', () => dbRender('all'));
   transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   border-color:rgba(212,160,23,0.15) !important;
 }
-.sc-level-card:hover { transform:translateY(-4px); box-shadow:0 16px 48px rgba(0,0,0,0.3); }
-.sc-level-card.active { border-color:var(--accent) !important; box-shadow:0 0 0 2px rgba(212,160,23,0.3); }
-.sc-level-card.hidden-card { display:none; }
+.sc-level-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(0,0,0,0.35); }
+.sc-level-card.active { border-color:var(--accent) !important; box-shadow:0 0 0 2px rgba(212,160,23,0.3), 0 20px 50px rgba(0,0,0,0.3); }
 .sc-card-emoji { font-size:1.8rem; margin-bottom:0.5rem; }
 .sc-card-title { font-family:Syne,sans-serif; font-weight:700; margin-bottom:0.4rem; font-size:1.1rem; }
 .sc-card-desc { font-size:0.82rem; margin-bottom:1rem; }
@@ -449,44 +426,33 @@ document.addEventListener('DOMContentLoaded', () => dbRender('all'));
 .sc-stat-badge { font-size:0.68rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; background:rgba(212,160,23,0.1); color:var(--accent); border:1px solid rgba(212,160,23,0.25); padding:0.2rem 0.6rem; border-radius:99px; }
 .sc-browse-btn { font-size:0.82rem; padding:0.5rem 1.1rem; pointer-events:none; }
 
-/* Compact card state */
-.sc-levels-container.collapsed .sc-card-desc,
-.sc-levels-container.collapsed .sc-card-stats,
-.sc-levels-container.collapsed .sc-browse-btn { display:none; }
-.sc-levels-container.collapsed .sc-level-card { padding:1rem 1.25rem; }
-.sc-levels-container.collapsed .sc-card-emoji { font-size:1.3rem; margin-bottom:0.25rem; display:inline-block; margin-right:0.5rem; }
-.sc-levels-container.collapsed .sc-card-title { font-size:0.9rem; display:inline; }
-
-/* Subject panel */
-.sc-subject-panel {
-  flex:1;
+/* Subject badge strip — sits flush above the notes panel */
+.sc-subject-strip {
   background:var(--surface);
   border:1px solid var(--border);
-  border-radius:16px;
-  padding:1.5rem;
-  opacity:0;
-  transform:translateX(30px);
-  transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  pointer-events:none;
-  display:none;
-  overflow-y:auto;
-  max-height:500px;
-  scrollbar-width:thin;
-  scrollbar-color:var(--border) transparent;
+  border-radius:16px 16px 0 0;
+  padding:1.25rem 1.5rem;
 }
-.sc-subject-panel.visible {
-  opacity:1;
-  transform:translateX(0);
-  pointer-events:auto;
-  display:block;
+@keyframes fadeSlideIn {
+  from { opacity:0; transform:translateY(12px); }
+  to { opacity:1; transform:translateY(0); }
 }
-.sc-subject-panel-header {
+.sc-strip-header {
   display:flex;
   align-items:center;
   justify-content:space-between;
   margin-bottom:1rem;
-  padding-bottom:0.75rem;
-  border-bottom:1px solid var(--border);
+}
+.sc-strip-label {
+  font-family:Syne,sans-serif;
+  font-weight:700;
+  font-size:1rem;
+  color:var(--text);
+}
+.sc-badges-row {
+  display:flex;
+  flex-wrap:wrap;
+  gap:0.5rem;
 }
 .sc-back-btn {
   background:none;
@@ -501,20 +467,35 @@ document.addEventListener('DOMContentLoaded', () => dbRender('all'));
 }
 .sc-back-btn:hover { border-color:var(--accent); color:var(--accent); }
 
-/* Subject list items */
-.sc-subj-item {
-  padding:0.75rem 1rem;
-  border-radius:10px;
+/* Subject badge pills */
+.sc-subj-badge {
+  display:inline-flex;
+  align-items:center;
+  gap:0.35rem;
+  background:rgba(212,160,23,0.06);
+  border:1px solid var(--border);
+  border-radius:99px;
+  padding:0.4rem 0.9rem;
   cursor:pointer;
+  font-family:inherit;
+  font-size:0.82rem;
+  color:var(--text2);
   transition:all 0.2s;
-  margin-bottom:0.35rem;
-  border:1px solid transparent;
+  white-space:nowrap;
 }
-.sc-subj-item:hover { background:rgba(212,160,23,0.06); border-color:rgba(212,160,23,0.15); }
-.sc-subj-item.active { background:rgba(212,160,23,0.10); border-color:var(--accent); box-shadow:0 0 0 1px rgba(212,160,23,0.2); }
-.sc-subj-item.active .subj-name { color:var(--accent); }
-.sc-subj-item .subj-name { font-weight:600; font-size:0.88rem; color:var(--text); display:block; line-height:1.3; }
-.sc-subj-item .subj-code { font-size:0.7rem; color:var(--text3); letter-spacing:0.04em; }
+.sc-subj-badge:hover {
+  background:rgba(212,160,23,0.1);
+  border-color:rgba(212,160,23,0.3);
+  color:var(--text);
+  transform:translateY(-2px);
+}
+.sc-subj-badge.active {
+  background:rgba(212,160,23,0.15);
+  border-color:var(--accent);
+  color:var(--accent);
+  font-weight:600;
+  box-shadow:0 0 0 1px rgba(212,160,23,0.2);
+}
 
 /* Tabs & resources */
 .sc-tab-bar { display:flex; gap:0.5rem; margin:1.5rem 0 1.25rem; flex-wrap:wrap; }
@@ -560,10 +541,12 @@ document.addEventListener('DOMContentLoaded', () => dbRender('all'));
 .sc-year-count { font-size:0.7rem; color:var(--text3); font-weight:400; }
 
 /* Responsive */
+@media(max-width:900px) {
+  .sc-levels-grid { grid-template-columns:1fr; }
+}
 @media(max-width:768px) {
-  .sc-split-row { flex-direction:column; }
-  .sc-levels-container.collapsed { flex:1; max-width:100%; }
-  .sc-subject-panel { max-height:400px; }
+  .sc-levels-grid { grid-template-columns:1fr; }
+  .sc-badges-row { max-height:200px; overflow-y:auto; }
 }
 </style>
 
@@ -586,87 +569,55 @@ function scLoadLevel(level) {
   scCurrentLevel = level;
   scCurrentSubject = null;
 
-  const container = document.getElementById('scLevelsContainer');
-  const panel = document.getElementById('scSubjectPanel');
-  const header = document.getElementById('scHeader');
-
-  // Collapse cards
-  container.classList.add('collapsed');
-
-  // Hide non-selected cards, highlight selected
+  // Highlight active level card
   document.querySelectorAll('.sc-level-card').forEach(c => {
-    if (c.dataset.level === level) {
-      c.classList.add('active');
-      c.classList.remove('hidden-card');
-    } else {
-      c.classList.add('hidden-card');
-      c.classList.remove('active');
-    }
+    c.classList.toggle('active', c.getAttribute('data-level') === level);
   });
 
-  // Update header
   const names = { foundation:'🌱 Foundation', diploma:'📐 Diploma', bs:'🎓 BS Degree' };
-  document.getElementById('scSubjectPanelTitle').textContent = names[level] + ' — Subjects';
+  document.getElementById('scStripLabel').textContent = names[level] + ' — Subjects';
 
-  // Build subject list
+  // Build subject badge pills
   const subList = document.getElementById('scSubjectList');
   subList.innerHTML = '';
-  scData[level].forEach((sub) => {
-    const item = document.createElement('div');
-    item.className = 'sc-subj-item';
-    item.innerHTML = `<span class="subj-name">${sub.subject}</span><span class="subj-code">${sub.code}</span>`;
-    item.onclick = () => {
+  let firstBadge = null;
+  scData[level].forEach((sub, i) => {
+    const badge = document.createElement('button');
+    badge.className = 'sc-subj-badge';
+    badge.textContent = sub.subject;
+    badge.onclick = () => {
       scCurrentSubject = sub;
-      // Highlight selected subject
-      document.querySelectorAll('.sc-subj-item').forEach(s => s.classList.remove('active'));
-      item.classList.add('active');
+      document.querySelectorAll('.sc-subj-badge').forEach(b => b.classList.remove('active'));
+      badge.classList.add('active');
       scSelectSubject();
     };
-    subList.appendChild(item);
+    subList.appendChild(badge);
+    if (i === 0) firstBadge = badge;
   });
 
-  // Show subject panel with animation
-  panel.classList.add('visible');
+  // Show the combined section
+  document.getElementById('scResourceSection').style.display = 'block';
 
-  // Scroll to the picker section
-  document.getElementById('levelPicker').scrollIntoView({ behavior:'smooth', block:'start' });
+  // Auto-select the first subject
+  if (firstBadge && scData[level].length > 0) {
+    scCurrentSubject = scData[level][0];
+    firstBadge.classList.add('active');
+    scSelectSubject();
+  }
+
+  // Scroll to the section
+  setTimeout(() => {
+    document.getElementById('scResourceSection').scrollIntoView({ behavior:'smooth', block:'start' });
+  }, 100);
 }
 
 function scSelectSubject() {
   if (!scCurrentSubject) return;
-  const sub = scCurrentSubject;
-  const names = { foundation:'Foundation', diploma:'Diploma', bs:'BS Degree' };
-
-  // Show resource section
-  const resSection = document.getElementById('scResourceSection');
-  resSection.style.display = 'block';
-
-  // Update breadcrumb
-  document.getElementById('scBreadcrumb').textContent = `${names[scCurrentLevel]} → ${sub.subject}`;
-
-  // Show notes by default
   scShowResources('notes');
-
-  // Scroll to resource section
-  setTimeout(() => {
-    resSection.scrollIntoView({ behavior:'smooth', block:'start' });
-  }, 100);
-}
-
-function scBackToSubjects() {
-  document.getElementById('scResourceSection').style.display = 'none';
-  scCurrentSubject = null;
-  document.getElementById('levelPicker').scrollIntoView({ behavior:'smooth', block:'start' });
 }
 
 function scReset() {
-  const container = document.getElementById('scLevelsContainer');
-  const panel = document.getElementById('scSubjectPanel');
-  container.classList.remove('collapsed');
-  panel.classList.remove('visible');
-  document.querySelectorAll('.sc-level-card').forEach(c => {
-    c.classList.remove('active', 'hidden-card');
-  });
+  document.querySelectorAll('.sc-level-card').forEach(c => c.classList.remove('active'));
   document.getElementById('scResourceSection').style.display = 'none';
   scCurrentLevel = null;
   scCurrentSubject = null;
