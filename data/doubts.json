@@ -1,20 +1,50 @@
 [
   {
+    "id": "plh-math-1",
     "subject": "Math",
-    "question": "How important are eigenvalues for the final exam?",
-    "answer": "Very important. Expect at least one conceptual or numerical question.",
-    "time": "2 days ago"
+    "question": "What is the difference between eigenvalues and eigenvectors, and when do we use them?",
+    "answer": "Eigenvalues scale an eigenvector direction. They are used in PCA, stability analysis and graph methods.",
+    "time": "2 days ago",
+    "upvotes": 24
   },
   {
-    "subject": "DSA",
-    "question": "Is recursion asked directly in ET?",
-    "answer": "Usually indirectly via tree or divide-and-conquer problems.",
-    "time": "1 day ago"
+    "id": "plh-stats-1",
+    "subject": "Stats",
+    "question": "When should I use t-test vs z-test?",
+    "answer": "Use z-test when population standard deviation is known and sample size is large. Use t-test when it is unknown, especially for small samples.",
+    "time": "3 days ago",
+    "upvotes": 31
   },
   {
+    "id": "plh-python-1",
     "subject": "Python",
-    "question": "Should we memorize syntax or focus on logic?",
-    "answer": "Logic > syntax. Syntax errors are rarely tested.",
-    "time": "Today"
+    "question": "How does list comprehension differ from a normal for loop in Python?",
+    "answer": "List comprehensions are concise and often faster for simple transformations compared with loops using append.",
+    "time": "1 day ago",
+    "upvotes": 18
+  },
+  {
+    "id": "plh-dbms-1",
+    "subject": "DBMS",
+    "question": "What is the difference between 2NF and 3NF normalization?",
+    "answer": "2NF removes partial dependencies on composite keys. 3NF removes transitive dependencies between non-key attributes.",
+    "time": "5 days ago",
+    "upvotes": 15
+  },
+  {
+    "id": "plh-dsa-1",
+    "subject": "DSA",
+    "question": "When should I use BFS vs DFS for graph traversal?",
+    "answer": "BFS is ideal for shortest paths in unweighted graphs. DFS is useful for cycle checks, topological order and deep exploration.",
+    "time": "4 days ago",
+    "upvotes": 27
+  },
+  {
+    "id": "plh-ml-1",
+    "subject": "ML",
+    "question": "What is the bias-variance tradeoff and how do I manage it?",
+    "answer": "High bias causes underfitting and high variance causes overfitting. Use regularization, validation and better data balance.",
+    "time": "6 days ago",
+    "upvotes": 42
   }
 ]

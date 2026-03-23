@@ -1,792 +1,1901 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-theme="dark">
-<head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Study Corner | Sundarbans House</title>
-  <link rel="stylesheet" href="style_premium.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
-
-<div id="preloader">
-  <div class="preloader-inner">
-    <div class="preloader-orbit-wrap">
-      <div class="preloader-orbit-ring">
-        <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <path id="orbitPath" d="M 110,110 m -88,0 a 88,88 0 1,1 176,0 a 88,88 0 1,1 -176,0"/>
-          </defs>
-          <text>
-            <textPath href="#orbitPath" startOffset="0%">✦ SUNDARBANS HOUSE · IIT MADRAS BS · EXCELLENCE · </textPath>
-          </text>
-        </svg>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Study Corner | Sundarbans House</title>
+    <link rel="stylesheet" href="style_premium.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet" />
+  </head>
+  <body>
+    <div id="preloader">
+      <div class="preloader-inner">
+        <div class="preloader-orbit-wrap">
+          <div class="preloader-orbit-ring">
+            <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+              <defs>
+                <path
+                  id="orbitPath"
+                  d="M 110,110 m -88,0 a 88,88 0 1,1 176,0 a 88,88 0 1,1 -176,0" />
+              </defs>
+              <text>
+                <textPath href="#orbitPath" startOffset="0%">
+                  ✦ SUNDARBANS HOUSE · IIT MADRAS BS · EXCELLENCE ·
+                </textPath>
+              </text>
+            </svg>
+          </div>
+          <div class="preloader-logo-center">
+            <img
+              src="assets/LOGO.JPEG"
+              alt="Sundarbans"
+              class="preloader-logo-img"
+              onerror="
+                this.style.display = 'none';
+                this.nextElementSibling.style.display = 'block';
+              " />
+            <span class="preloader-logo-letter" style="display: none">S</span>
+          </div>
+        </div>
+        <div class="preloader-bar"><div class="preloader-fill"></div></div>
+        <div class="preloader-text">Loading Sundarbans...</div>
       </div>
-      <div class="preloader-logo-center">
-        <img src="assets/LOGO.JPEG" alt="Sundarbans" class="preloader-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span class="preloader-logo-letter" style="display:none">S</span>
+    </div>
+    <div id="cursor-dot"></div>
+    <div id="cursor-ring"></div>
+    <div class="particles-bg" id="particlesBg"></div>
+
+    <!-- SEARCH OVERLAY -->
+    <div class="search-overlay" id="searchOverlay">
+      <div class="search-box">
+        <div class="search-input-row">
+          <svg
+            width="18"
+            height="18"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search pages, resources, events..." />
+          <button id="searchClose">✕</button>
+        </div>
+        <div class="search-hint">Press Ctrl+K to open • Esc to close</div>
+        <div id="searchResults"></div>
       </div>
     </div>
-    <div class="preloader-bar"><div class="preloader-fill"></div></div>
-    <div class="preloader-text">Loading Sundarbans...</div>
-  </div>
-</div>
-<div id="cursor-dot"></div><div id="cursor-ring"></div>
-<div class="particles-bg" id="particlesBg"></div>
 
-<!-- SEARCH OVERLAY -->
-<div class="search-overlay" id="searchOverlay">
-  <div class="search-box">
-    <div class="search-input-row">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input type="text" id="searchInput" placeholder="Search pages, resources, events...">
-      <button id="searchClose">✕</button>
-    </div>
-    <div class="search-hint">Press Ctrl+K to open • Esc to close</div>
-    <div id="searchResults"></div>
-  </div>
-</div>
+    <!-- BACK TO TOP -->
+    <button id="backToTop" aria-label="Back to top">
+      <svg
+        width="18"
+        height="18"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2.5">
+        <path d="M18 15l-6-6-6 6" />
+      </svg>
+    </button>
 
-<!-- BACK TO TOP -->
-<button id="backToTop" aria-label="Back to top">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
-</button>
-
-<header class="navbar" id="navbar">
-  <div class="nav-container">
-    <div class="nav-left">
-      <div class="nav-logo-wrapper"><img src="assets/LOGO.JPEG" alt="Logo" class="nav-logo"><div class="logo-glow"></div></div>
-      <div class="brand-text"><span class="brand-main">SUNDARBANS</span><span class="brand-sub">IIT Madras BS</span></div>
-    </div>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    <nav class="nav-links" id="navLinks">
-      <a href="index.html" class="nav-link"><span>Home</span></a><a href="events.html" class="nav-link"><span>Events</span></a><a href="contact.html" class="nav-link"><span>Contact</span></a>
-      <a href="sundarbans/login.html" class="nav-cta-btn"><span>Members Lounge</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </nav>
-    <div class="nav-tools">
-      <button class="nav-tool-btn" id="searchBtn" aria-label="Search" title="Search (Ctrl+K)">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      </button>
-      <div style="position:relative">
-        <button class="nav-tool-btn" id="notifBtn" aria-label="Notifications">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-          <span class="notif-badge" id="notifBadge">3</span>
+    <header class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="nav-left">
+          <div class="nav-logo-wrapper">
+            <img src="assets/LOGO.JPEG" alt="Logo" class="nav-logo" />
+            <div class="logo-glow"></div>
+          </div>
+          <div class="brand-text">
+            <span class="brand-main">SUNDARBANS</span
+            ><span class="brand-sub">IIT Madras BS</span>
+          </div>
+        </div>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
         </button>
-        <div class="notif-panel" id="notifPanel">
-          <div class="notif-header"><h4>Notifications</h4><button class="notif-markall" onclick="markAllRead()">Mark all read</button></div>
-          <div class="notif-list" id="notifList"></div>
-          <div class="notif-footer"><a href="#">View all notifications</a></div>
+        <nav class="nav-links" id="navLinks">
+          <a href="index.html" class="nav-link"><span>Home</span></a
+          ><a href="events.html" class="nav-link"><span>Events</span></a
+          ><a href="contact.html" class="nav-link"><span>Contact</span></a>
+          <a href="sundarbans/login.html" class="nav-cta-btn"
+            ><span>Members Lounge</span
+            ><svg
+              width="14"
+              height="14"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5">
+              <path d="M5 12h14M12 5l7 7-7 7" /></svg
+          ></a>
+        </nav>
+        <div class="nav-tools">
+          <button
+            class="nav-tool-btn"
+            id="searchBtn"
+            aria-label="Search"
+            title="Search (Ctrl+K)">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2">
+              <circle cx="11" cy="11" r="8" />
+              <path d="m21 21-4.35-4.35" />
+            </svg>
+          </button>
+          <div style="position: relative">
+            <button
+              class="nav-tool-btn"
+              id="notifBtn"
+              aria-label="Notifications">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2">
+                <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+                <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+              </svg>
+              <span class="notif-badge" id="notifBadge">3</span>
+            </button>
+            <div class="notif-panel" id="notifPanel">
+              <div class="notif-header">
+                <h4>Notifications</h4>
+                <button class="notif-markall" onclick="markAllRead()">
+                  Mark all read
+                </button>
+              </div>
+              <div class="notif-list" id="notifList"></div>
+              <div class="notif-footer">
+                <a href="#">View all notifications</a>
+              </div>
+            </div>
+          </div>
+          <button
+            class="nav-tool-btn"
+            id="themeToggle"
+            aria-label="Toggle theme"
+            title="Toggle dark/light mode">
+            <span id="themeIcon">☀️</span>
+          </button>
         </div>
       </div>
-      <button class="nav-tool-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle dark/light mode">
-        <span id="themeIcon">☀️</span>
-      </button>
-    </div>
-  </div>
-</header>
+    </header>
 
-<section class="page-hero">
-  <div class="page-hero-bg"><img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1920&q=80&auto=format&fit=crop" alt="Study"><div class="page-hero-overlay"></div></div>
-  <div class="container page-hero-content">
-    <div class="breadcrumb-nav"><a href="index.html">Home</a><span>/</span><span>Study Corner</span></div>
-    <h1>Study <span class="tg">Corner</span></h1>
-    <p>Comprehensive academic resources for Foundation, Diploma and BS level students</p>
-  </div>
-</section>
-
-<!-- ===== LEVEL PICKER ===== -->
-<section class="section rs" style="background:var(--bg2)" id="levelPicker">
-  <div class="container">
-    <div class="sec-hdr" id="scHeader">
-      <div class="section-tag">Step 1 — Choose Your Level</div>
-      <h2 class="section-title-xl">Study Resources <span class="tg">by Level</span></h2>
-    </div>
-
-    <!-- LEVEL CARDS: 3 in one row -->
-    <div class="sc-levels-grid" id="scLevelsContainer">
-      <div class="card-base rc sc-level-card" id="lvl-foundation" data-level="foundation">
-        <div class="sc-card-emoji">🌱</div>
-        <h3 class="sc-card-title">Foundation Level</h3>
-        <p class="desc sc-card-desc">Maths, English, Computational Thinking, Statistics, Python basics</p>
-        <div class="sc-card-stats">
-          <span class="sc-stat-badge">8 subjects</span>
-          <span class="sc-stat-badge">Notes + PYQs</span>
+    <section class="page-hero">
+      <div class="page-hero-bg">
+        <img
+          src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=1920&q=80&auto=format&fit=crop"
+          alt="Study" />
+        <div class="page-hero-overlay"></div>
+      </div>
+      <div class="container page-hero-content">
+        <div class="breadcrumb-nav">
+          <a href="index.html">Home</a><span>/</span><span>Study Corner</span>
         </div>
-        <span class="submit-btn sc-browse-btn">Browse Subjects →</span>
+        <h1>Study <span class="tg">Corner</span></h1>
+        <p>
+          Comprehensive academic resources for Foundation, Diploma and BS level
+          students
+        </p>
       </div>
-      <div class="card-base rc sc-level-card" id="lvl-diploma" data-level="diploma">
-        <div class="sc-card-emoji">📐</div>
-        <h3 class="sc-card-title">Diploma Level</h3>
-        <p class="desc sc-card-desc">DSA, DBMS, Machine Learning, App Development, Java and more</p>
-        <div class="sc-card-stats">
-          <span class="sc-stat-badge">11 subjects</span>
-          <span class="sc-stat-badge">Notes + PYQs</span>
+    </section>
+
+    <!-- ===== LEVEL PICKER ===== -->
+    <section class="section rs" style="background: var(--bg2)" id="levelPicker">
+      <div class="container">
+        <div class="sec-hdr" id="scHeader">
+          <div class="section-tag">Step 1 — Choose Your Level</div>
+          <h2 class="section-title-xl">
+            Study Resources <span class="tg">by Level</span>
+          </h2>
         </div>
-        <span class="submit-btn sc-browse-btn">Browse Subjects →</span>
-      </div>
-      <div class="card-base rc sc-level-card" id="lvl-bs" data-level="bs">
-        <div class="sc-card-emoji">🎓</div>
-        <h3 class="sc-card-title">BS Degree Level</h3>
-        <p class="desc sc-card-desc">Deep Learning, LLMs, NLP, CV, MLOps and more electives</p>
-        <div class="sc-card-stats">
-          <span class="sc-stat-badge">13 subjects</span>
-          <span class="sc-stat-badge">Notes + PYQs</span>
+
+        <!-- LEVEL CARDS: 3 in one row -->
+        <div class="sc-levels-grid" id="scLevelsContainer">
+          <div
+            class="card-base rc sc-level-card"
+            id="lvl-foundation"
+            data-level="foundation">
+            <div class="sc-card-emoji">🌱</div>
+            <h3 class="sc-card-title">Foundation Level</h3>
+            <p class="desc sc-card-desc">
+              Maths, English, Computational Thinking, Statistics, Python basics
+            </p>
+            <div class="sc-card-stats">
+              <span class="sc-stat-badge">8 subjects</span>
+              <span class="sc-stat-badge">Notes + PYQs</span>
+            </div>
+            <span class="submit-btn sc-browse-btn">Browse Subjects →</span>
+          </div>
+          <div
+            class="card-base rc sc-level-card"
+            id="lvl-diploma"
+            data-level="diploma">
+            <div class="sc-card-emoji">📐</div>
+            <h3 class="sc-card-title">Diploma Level</h3>
+            <p class="desc sc-card-desc">
+              DSA, DBMS, Machine Learning, App Development, Java and more
+            </p>
+            <div class="sc-card-stats">
+              <span class="sc-stat-badge">11 subjects</span>
+              <span class="sc-stat-badge">Notes + PYQs</span>
+            </div>
+            <span class="submit-btn sc-browse-btn">Browse Subjects →</span>
+          </div>
+          <div class="card-base rc sc-level-card" id="lvl-bs" data-level="bs">
+            <div class="sc-card-emoji">🎓</div>
+            <h3 class="sc-card-title">BS Degree Level</h3>
+            <p class="desc sc-card-desc">
+              Deep Learning, LLMs, NLP, CV, MLOps and more electives
+            </p>
+            <div class="sc-card-stats">
+              <span class="sc-stat-badge">13 subjects</span>
+              <span class="sc-stat-badge">Notes + PYQs</span>
+            </div>
+            <span
+              class="submit-btn sc-browse-btn"
+              style="background: var(--accent); color: #000"
+              >Browse Subjects →</span
+            >
+          </div>
         </div>
-        <span class="submit-btn sc-browse-btn" style="background:var(--accent);color:#000">Browse Subjects →</span>
       </div>
-    </div>
+    </section>
 
-  </div>
-</section>
-
-<!-- ===== RESOURCE SECTION (badges + panel combined) ===== -->
-<section class="section rs" id="scResourceSection" style="display:none">
-  <div class="container">
-    <!-- Subject badge strip -->
-    <div class="sc-subject-strip" id="scSubjectStrip">
-      <div class="sc-strip-header">
-        <span class="sc-strip-label" id="scStripLabel">Subjects</span>
-        <button class="sc-back-btn" onclick="scReset()">← All Levels</button>
+    <!-- ===== RESOURCE SECTION (badges + panel combined) ===== -->
+    <section class="section rs" id="scResourceSection" style="display: none">
+      <div class="container">
+        <!-- Subject badge strip -->
+        <div class="sc-subject-strip" id="scSubjectStrip">
+          <div class="sc-strip-header">
+            <span class="sc-strip-label" id="scStripLabel">Subjects</span>
+            <button class="sc-back-btn" onclick="scReset()">
+              ← All Levels
+            </button>
+          </div>
+          <div class="sc-badges-row" id="scSubjectList"></div>
+        </div>
+        <!-- Notes / PYQ panel directly below badges -->
+        <div
+          style="
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 0 0 16px 16px;
+            padding: 2rem;
+            min-height: 420px;
+            border-top: none;
+          "
+          id="scPanel">
+          <div class="sc-empty">
+            <div style="font-size: 3rem">📖</div>
+            <p style="font-size: 0.9rem">Select a subject to view resources</p>
+          </div>
+        </div>
       </div>
-      <div class="sc-badges-row" id="scSubjectList"></div>
-    </div>
-    <!-- Notes / PYQ panel directly below badges -->
-    <div style="background:var(--surface);border:1px solid var(--border);border-radius:0 0 16px 16px;padding:2rem;min-height:420px;border-top:none" id="scPanel">
-      <div class="sc-empty">
-        <div style="font-size:3rem">📖</div>
-        <p style="font-size:0.9rem">Select a subject to view resources</p>
+    </section>
+
+    <!-- ===== STUDENT TOOLS ===== -->
+    <!-- ===== STUDENT TOOLS ===== -->
+    <section
+      class="section rs"
+      style="background: var(--bg2)"
+      id="studentTools">
+      <div class="container">
+        <div class="sec-hdr">
+          <div class="section-tag">Student Tools</div>
+          <h2 class="section-title-xl">
+            Handy <span class="tg">tools</span> for studying
+          </h2>
+        </div>
+        <!-- Row 1: Original tools -->
+        <div class="grid-3" style="margin-bottom: 1.5rem">
+          <div class="card-base rc" style="--card-delay: 0.1s">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem">⏱️</div>
+            <h4 style="font-family: Syne, sans-serif; font-weight: 700">
+              Pomodoro Timer
+            </h4>
+            <p class="desc" style="font-size: 0.82rem">
+              Study in focused 25-minute blocks
+            </p>
+            <a
+              href="#"
+              style="
+                color: var(--accent);
+                font-size: 0.82rem;
+                font-weight: 600;
+                text-decoration: none;
+              "
+              >Use Tool →</a
+            >
+          </div>
+          <div class="card-base rc" style="--card-delay: 0.2s">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem">📝</div>
+            <h4 style="font-family: Syne, sans-serif; font-weight: 700">
+              Doubt Board
+            </h4>
+            <p class="desc" style="font-size: 0.82rem">
+              Post your doubts, get peer answers
+            </p>
+            <a
+              href="#doubtBoard"
+              style="
+                color: var(--accent);
+                font-size: 0.82rem;
+                font-weight: 600;
+                text-decoration: none;
+              "
+              >Open Board →</a
+            >
+          </div>
+          <div class="card-base rc" style="--card-delay: 0.3s">
+            <div style="font-size: 1.5rem; margin-bottom: 0.5rem">📅</div>
+            <h4 style="font-family: Syne, sans-serif; font-weight: 700">
+              Study Planner
+            </h4>
+            <p class="desc" style="font-size: 0.82rem">
+              Plan your week, track your progress
+            </p>
+            <a
+              href="#"
+              style="
+                color: var(--accent);
+                font-size: 0.82rem;
+                font-weight: 600;
+                text-decoration: none;
+              "
+              >Plan Now →</a
+            >
+          </div>
+        </div>
+        <!-- Row 2: Academic tools -->
+        <div class="grid-4">
+          <div class="card-base rc" style="--card-delay: 0.15s">
+            <div style="font-size: 1.5rem; margin-bottom: 0.75rem">📊</div>
+            <h4
+              style="
+                font-family: Syne, sans-serif;
+                font-weight: 700;
+                margin-bottom: 0.35rem;
+              ">
+              Looker Studio
+            </h4>
+            <p class="desc" style="font-size: 0.82rem; margin-bottom: 1rem">
+              Student-specific academic performance analytics
+            </p>
+            <a
+              href="#"
+              target="_blank"
+              style="
+                color: var(--accent);
+                font-size: 0.82rem;
+                font-weight: 600;
+                text-decoration: none;
+              "
+              >Open Dashboard →</a
+            >
+          </div>
+          <div class="card-base rc" style="--card-delay: 0.25s">
+            <div style="font-size: 1.5rem; margin-bottom: 0.75rem">🔗</div>
+            <h4
+              style="
+                font-family: Syne, sans-serif;
+                font-weight: 700;
+                margin-bottom: 0.35rem;
+              ">
+              Score Checker
+            </h4>
+            <p class="desc" style="font-size: 0.82rem; margin-bottom: 1rem">
+              Quick access to results & internal scores
+            </p>
+            <a
+              href="#"
+              target="_blank"
+              style="
+                color: var(--accent);
+                font-size: 0.82rem;
+                font-weight: 600;
+                text-decoration: none;
+              "
+              >Check Scores →</a
+            >
+          </div>
+          <div class="card-base rc" style="--card-delay: 0.35s">
+            <div style="font-size: 1.5rem; margin-bottom: 0.75rem">🌱</div>
+            <h4
+              style="
+                font-family: Syne, sans-serif;
+                font-weight: 700;
+                margin-bottom: 0.35rem;
+              ">
+              IITM BS Societies
+            </h4>
+            <p class="desc" style="font-size: 0.82rem; margin-bottom: 1rem">
+              Explore student clubs & communities
+            </p>
+            <a
+              href="#"
+              target="_blank"
+              style="
+                color: var(--accent);
+                font-size: 0.82rem;
+                font-weight: 600;
+                text-decoration: none;
+              "
+              >Explore →</a
+            >
+          </div>
+          <div class="card-base rc" style="--card-delay: 0.45s">
+            <div style="font-size: 1.5rem; margin-bottom: 0.75rem">📘</div>
+            <h4
+              style="
+                font-family: Syne, sans-serif;
+                font-weight: 700;
+                margin-bottom: 0.35rem;
+              ">
+              Student Handbook
+            </h4>
+            <p class="desc" style="font-size: 0.82rem; margin-bottom: 1rem">
+              Updated rules, policies & academic roadmap
+            </p>
+            <a
+              href="#"
+              target="_blank"
+              style="
+                color: var(--accent);
+                font-size: 0.82rem;
+                font-weight: 600;
+                text-decoration: none;
+              "
+              >Read Handbook →</a
+            >
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ===== STUDENT TOOLS ===== -->
-<!-- ===== STUDENT TOOLS ===== -->
-<section class="section rs" style="background:var(--bg2)" id="studentTools">
-  <div class="container">
-    <div class="sec-hdr">
-      <div class="section-tag">Student Tools</div>
-      <h2 class="section-title-xl">Handy <span class="tg">tools</span> for studying</h2>
-    </div>
-    <!-- Row 1: Original tools -->
-    <div class="grid-3" style="margin-bottom:1.5rem">
-      <div class="card-base rc" style="--card-delay:0.1s">
-        <div style="font-size:1.5rem;margin-bottom:0.5rem">⏱️</div>
-        <h4 style="font-family:Syne,sans-serif;font-weight:700">Pomodoro Timer</h4>
-        <p class="desc" style="font-size:0.82rem">Study in focused 25-minute blocks</p>
-        <a href="#" style="color:var(--accent);font-size:0.82rem;font-weight:600;text-decoration:none">Use Tool →</a>
+    <!-- ===== ANONYMOUS DOUBTS BOARD ===== -->
+    <section class="section rs" id="doubtBoard">
+      <div class="container">
+        <div class="sec-hdr">
+          <div class="section-tag">Community</div>
+          <h2 class="section-title-xl">
+            Anonymous <span class="tg">Doubts Board</span>
+          </h2>
+          <p class="sec-sub">
+            Community-answered doubts. Ask anonymously, learn together.
+          </p>
+        </div>
+
+        <!-- Filter bar -->
+        <div
+          style="
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 2.5rem;
+          ">
+          <button
+            class="db-filter active"
+            data-db-filter="all"
+            onclick="dbFilter('all', this)">
+            All Subjects
+          </button>
+          <button
+            class="db-filter"
+            data-db-filter="Math"
+            onclick="dbFilter('Math', this)">
+            Mathematics
+          </button>
+          <button
+            class="db-filter"
+            data-db-filter="Stats"
+            onclick="dbFilter('Stats', this)">
+            Statistics
+          </button>
+          <button
+            class="db-filter"
+            data-db-filter="Python"
+            onclick="dbFilter('Python', this)">
+            Python
+          </button>
+          <button
+            class="db-filter"
+            data-db-filter="DBMS"
+            onclick="dbFilter('DBMS', this)">
+            DBMS
+          </button>
+          <button
+            class="db-filter"
+            data-db-filter="DSA"
+            onclick="dbFilter('DSA', this)">
+            DSA
+          </button>
+          <button
+            class="db-filter"
+            data-db-filter="ML"
+            onclick="dbFilter('ML', this)">
+            Machine Learning
+          </button>
+          <button
+            class="db-filter"
+            data-db-filter="my-doubts"
+            id="dbMyDoubtsBtn"
+            style="display: none"
+            onclick="dbFilter('my-doubts', this)">
+            My Doubts
+          </button>
+          <button
+            class="db-filter"
+            data-db-filter="answer-doubts"
+            onclick="dbFilter('answer-doubts', this)">
+            Answer Doubts
+          </button>
+        </div>
+
+        <!-- Doubts list -->
+        <div
+          id="dbList"
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            max-width: 820px;
+            margin: 0 auto 3rem;
+          "></div>
+
+        <!-- Submit form -->
+        <div
+          class="card-base"
+          style="max-width: 820px; margin: 0 auto; padding: 2rem">
+          <h3
+            style="
+              font-family: Syne, sans-serif;
+              font-weight: 700;
+              font-size: 1.2rem;
+              margin-bottom: 1.5rem;
+            ">
+            Submit Your Doubt
+          </h3>
+          <div style="margin-bottom: 1rem">
+            <label
+              style="
+                display: block;
+                font-size: 0.8rem;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--text3);
+                margin-bottom: 0.5rem;
+              "
+              >Subject</label
+            >
+            <select id="dbSubject" class="db-input">
+              <option value="">Select Subject</option>
+              <option value="Math">Mathematics</option>
+              <option value="Stats">Statistics</option>
+              <option value="Python">Python</option>
+              <option value="DBMS">DBMS</option>
+              <option value="DSA">DSA</option>
+              <option value="ML">Machine Learning</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div style="margin-bottom: 1.25rem">
+            <label
+              style="
+                display: block;
+                font-size: 0.8rem;
+                letter-spacing: 0.08em;
+                text-transform: uppercase;
+                color: var(--text3);
+                margin-bottom: 0.5rem;
+              "
+              >Your Doubt
+              <span
+                style="
+                  color: var(--text3);
+                  font-style: italic;
+                  text-transform: none;
+                  letter-spacing: 0;
+                "
+                >(min 10 characters)</span
+              ></label
+            >
+            <textarea
+              id="dbQuestion"
+              class="db-input"
+              rows="4"
+              placeholder="Describe your doubt in detail..."></textarea>
+          </div>
+          <button class="submit-btn" onclick="dbSubmit()">
+            Submit Anonymously
+          </button>
+          <p
+            id="dbMsg"
+            style="
+              margin-top: 0.75rem;
+              font-size: 0.85rem;
+              color: var(--accent);
+              display: none;
+            ">
+            ✓ Your doubt has been submitted!
+          </p>
+        </div>
       </div>
-      <div class="card-base rc" style="--card-delay:0.2s">
-        <div style="font-size:1.5rem;margin-bottom:0.5rem">📝</div>
-        <h4 style="font-family:Syne,sans-serif;font-weight:700">Doubt Board</h4>
-        <p class="desc" style="font-size:0.82rem">Post your doubts, get peer answers</p>
-        <a href="#doubtBoard" style="color:var(--accent);font-size:0.82rem;font-weight:600;text-decoration:none">Open Board →</a>
+    </section>
+
+    <!-- ===== STUDENT CONTRIBUTION + RESOURCE REQUEST ===== -->
+    <section class="section rs" style="background: var(--bg2)">
+      <div class="container">
+        <div
+          style="
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: stretch;
+          "
+          class="sc-contrib-grid">
+          <!-- Student Contribution -->
+          <div
+            class="card-base"
+            style="
+              padding: 2.5rem;
+              display: flex;
+              flex-direction: column;
+              gap: 0;
+              border-color: rgba(212, 160, 23, 0.2);
+            ">
+            <div style="font-size: 2rem; margin-bottom: 1rem">📤</div>
+            <div
+              class="section-tag"
+              style="margin-bottom: 1rem; align-self: flex-start">
+              Student Contribution
+            </div>
+            <h3
+              style="
+                font-family: Syne, sans-serif;
+                font-weight: 700;
+                font-size: 1.4rem;
+                margin-bottom: 0.5rem;
+              ">
+              Share Your Notes
+            </h3>
+            <p
+              style="
+                color: var(--text2);
+                font-size: 0.9rem;
+                margin-bottom: 1.25rem;
+              ">
+              <strong style="color: var(--text)">Purpose:</strong>
+              Community-driven academic content
+            </p>
+            <ul
+              style="
+                list-style: none;
+                padding: 0;
+                margin: 0 0 1.75rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.6rem;
+              ">
+              <li
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.6rem;
+                  font-size: 0.88rem;
+                  color: var(--text2);
+                ">
+                <span style="color: var(--accent); font-size: 0.9rem">✦</span>
+                Upload notes & resources
+              </li>
+              <li
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.6rem;
+                  font-size: 0.88rem;
+                  color: var(--text2);
+                ">
+                <span style="color: var(--accent); font-size: 0.9rem">✦</span>
+                Help juniors & peers
+              </li>
+              <li
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.6rem;
+                  font-size: 0.88rem;
+                  color: var(--text2);
+                ">
+                <span style="color: var(--accent); font-size: 0.9rem">✦</span>
+                WebOps review ensures quality
+              </li>
+            </ul>
+            <a href="#" class="submit-btn" style="align-self: flex-start"
+              >Submit a Resource</a
+            >
+          </div>
+
+          <!-- Resource Request -->
+          <div
+            class="card-base"
+            style="
+              padding: 2.5rem;
+              display: flex;
+              flex-direction: column;
+              gap: 0;
+              border-color: rgba(212, 160, 23, 0.2);
+            ">
+            <div style="font-size: 2rem; margin-bottom: 1rem">🎯</div>
+            <div
+              class="section-tag"
+              style="margin-bottom: 1rem; align-self: flex-start">
+              Resource Request
+            </div>
+            <h3
+              style="
+                font-family: Syne, sans-serif;
+                font-weight: 700;
+                font-size: 1.4rem;
+                margin-bottom: 0.5rem;
+              ">
+              Request a Resource
+            </h3>
+            <p
+              style="
+                color: var(--text2);
+                font-size: 0.9rem;
+                margin-bottom: 1.25rem;
+              ">
+              <strong style="color: var(--text)">Purpose:</strong> Identify
+              missing academic needs
+            </p>
+            <ul
+              style="
+                list-style: none;
+                padding: 0;
+                margin: 0 0 1.75rem;
+                display: flex;
+                flex-direction: column;
+                gap: 0.6rem;
+              ">
+              <li
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.6rem;
+                  font-size: 0.88rem;
+                  color: var(--text2);
+                ">
+                <span style="color: var(--accent); font-size: 0.9rem">✦</span>
+                Request missing topics
+              </li>
+              <li
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.6rem;
+                  font-size: 0.88rem;
+                  color: var(--text2);
+                ">
+                <span style="color: var(--accent); font-size: 0.9rem">✦</span>
+                Exam-focused content
+              </li>
+              <li
+                style="
+                  display: flex;
+                  align-items: center;
+                  gap: 0.6rem;
+                  font-size: 0.88rem;
+                  color: var(--text2);
+                ">
+                <span style="color: var(--accent); font-size: 0.9rem">✦</span>
+                Helps WebOps prioritize
+              </li>
+            </ul>
+            <a
+              href="#"
+              class="submit-btn"
+              style="
+                align-self: flex-start;
+                background: transparent;
+                border: 1px solid var(--accent);
+                color: var(--accent);
+              "
+              >Request a Resource</a
+            >
+          </div>
+        </div>
       </div>
-      <div class="card-base rc" style="--card-delay:0.3s">
-        <div style="font-size:1.5rem;margin-bottom:0.5rem">📅</div>
-        <h4 style="font-family:Syne,sans-serif;font-weight:700">Study Planner</h4>
-        <p class="desc" style="font-size:0.82rem">Plan your week, track your progress</p>
-        <a href="#" style="color:var(--accent);font-size:0.82rem;font-weight:600;text-decoration:none">Plan Now →</a>
-      </div>
-    </div>
-    <!-- Row 2: Academic tools -->
-    <div class="grid-4">
-      <div class="card-base rc" style="--card-delay:0.15s">
-        <div style="font-size:1.5rem;margin-bottom:0.75rem">📊</div>
-        <h4 style="font-family:Syne,sans-serif;font-weight:700;margin-bottom:0.35rem">Looker Studio</h4>
-        <p class="desc" style="font-size:0.82rem;margin-bottom:1rem">Student-specific academic performance analytics</p>
-        <a href="#" target="_blank" style="color:var(--accent);font-size:0.82rem;font-weight:600;text-decoration:none">Open Dashboard →</a>
-      </div>
-      <div class="card-base rc" style="--card-delay:0.25s">
-        <div style="font-size:1.5rem;margin-bottom:0.75rem">🔗</div>
-        <h4 style="font-family:Syne,sans-serif;font-weight:700;margin-bottom:0.35rem">Score Checker</h4>
-        <p class="desc" style="font-size:0.82rem;margin-bottom:1rem">Quick access to results & internal scores</p>
-        <a href="#" target="_blank" style="color:var(--accent);font-size:0.82rem;font-weight:600;text-decoration:none">Check Scores →</a>
-      </div>
-      <div class="card-base rc" style="--card-delay:0.35s">
-        <div style="font-size:1.5rem;margin-bottom:0.75rem">🌱</div>
-        <h4 style="font-family:Syne,sans-serif;font-weight:700;margin-bottom:0.35rem">IITM BS Societies</h4>
-        <p class="desc" style="font-size:0.82rem;margin-bottom:1rem">Explore student clubs & communities</p>
-        <a href="#" target="_blank" style="color:var(--accent);font-size:0.82rem;font-weight:600;text-decoration:none">Explore →</a>
-      </div>
-      <div class="card-base rc" style="--card-delay:0.45s">
-        <div style="font-size:1.5rem;margin-bottom:0.75rem">📘</div>
-        <h4 style="font-family:Syne,sans-serif;font-weight:700;margin-bottom:0.35rem">Student Handbook</h4>
-        <p class="desc" style="font-size:0.82rem;margin-bottom:1rem">Updated rules, policies & academic roadmap</p>
-        <a href="#" target="_blank" style="color:var(--accent);font-size:0.82rem;font-weight:600;text-decoration:none">Read Handbook →</a>
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 
-<!-- ===== ANONYMOUS DOUBTS BOARD ===== -->
-<section class="section rs" id="doubtBoard">
-  <div class="container">
-    <div class="sec-hdr">
-      <div class="section-tag">Community</div>
-      <h2 class="section-title-xl">Anonymous <span class="tg">Doubts Board</span></h2>
-      <p class="sec-sub">Community-answered doubts. Ask anonymously, learn together.</p>
-    </div>
+    <style>
+      /* Doubts board */
+      .db-filter {
+        background: none;
+        border: 1px solid var(--border);
+        color: var(--text2);
+        padding: 0.4rem 1rem;
+        border-radius: 99px;
+        font-size: 0.8rem;
+        cursor: pointer;
+        font-family: inherit;
+        transition: all 0.2s;
+      }
+      .db-filter:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .db-filter.active {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #000;
+        font-weight: 700;
+      }
+      .db-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 1.25rem 1.5rem;
+        transition: border-color 0.2s;
+      }
+      .db-card:hover {
+        border-color: rgba(212, 160, 23, 0.3);
+      }
+      .db-tag {
+        display: inline-block;
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        background: rgba(212, 160, 23, 0.1);
+        color: var(--accent);
+        border: 1px solid rgba(212, 160, 23, 0.25);
+        padding: 0.15rem 0.55rem;
+        border-radius: 99px;
+        margin-bottom: 0.75rem;
+      }
+      .db-question {
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: var(--text);
+        margin-bottom: 0.5rem;
+        line-height: 1.5;
+      }
+      .db-answer {
+        font-size: 0.85rem;
+        color: var(--text2);
+        line-height: 1.6;
+        margin-bottom: 0.75rem;
+        padding-left: 0.75rem;
+        border-left: 2px solid rgba(212, 160, 23, 0.25);
+      }
+      .db-footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: var(--text3);
+      }
+      .db-upvote {
+        background: none;
+        border: 1px solid var(--border);
+        color: var(--text2);
+        padding: 0.25rem 0.65rem;
+        border-radius: 99px;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.75rem;
+        transition: all 0.2s;
+      }
+      .db-upvote:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .db-input {
+        width: 100%;
+        background: rgba(212, 160, 23, 0.04);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 0.75rem 1rem;
+        color: var(--text);
+        font-family: inherit;
+        font-size: 0.9rem;
+        transition: border-color 0.2s;
+        box-sizing: border-box;
+      }
+      .db-input:focus {
+        outline: none;
+        border-color: var(--accent);
+      }
+      .db-input option {
+        background: var(--bg2);
+        color: var(--text);
+      }
+      @media (max-width: 768px) {
+        .sc-contrib-grid {
+          grid-template-columns: 1fr !important;
+        }
+      }
+    </style>
 
-    <!-- Filter bar -->
-    <div style="display:flex;gap:0.6rem;flex-wrap:wrap;justify-content:center;margin-bottom:2.5rem">
-      <button class="db-filter active" onclick="dbFilter('all',this)">All Subjects</button>
-      <button class="db-filter" onclick="dbFilter('Math',this)">Mathematics</button>
-      <button class="db-filter" onclick="dbFilter('Stats',this)">Statistics</button>
-      <button class="db-filter" onclick="dbFilter('Python',this)">Python</button>
-      <button class="db-filter" onclick="dbFilter('DBMS',this)">DBMS</button>
-      <button class="db-filter" onclick="dbFilter('DSA',this)">DSA</button>
-      <button class="db-filter" onclick="dbFilter('ML',this)">Machine Learning</button>
-    </div>
+    <script>
+      // ===== DOUBTS BOARD DATA (JSON + LOCAL STORAGE) =====
+      const DB_JSON_PATH = "data/doubts.json";
+      const DB_STUDENT_KEY = "sb_student_doubts_v1";
+      const DB_VOTED_KEY = "sb_voted_doubts_v1";
+      const DB_ANSWERS_KEY = "sb_doubt_answers_v1";
 
-    <!-- Doubts list -->
-    <div id="dbList" style="display:flex;flex-direction:column;gap:1rem;max-width:820px;margin:0 auto 3rem"></div>
+      let dbCurrentFilter = "all";
+      let dbDoubts = [];
+      let dbVoted = {};
+      let dbAnswers = {};
 
-    <!-- Submit form -->
-    <div class="card-base" style="max-width:820px;margin:0 auto;padding:2rem">
-      <h3 style="font-family:Syne,sans-serif;font-weight:700;font-size:1.2rem;margin-bottom:1.5rem">Submit Your Doubt</h3>
-      <div style="margin-bottom:1rem">
-        <label style="display:block;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:0.5rem">Subject</label>
-        <select id="dbSubject" class="db-input">
-          <option value="">Select Subject</option>
-          <option value="Math">Mathematics</option>
-          <option value="Stats">Statistics</option>
-          <option value="Python">Python</option>
-          <option value="DBMS">DBMS</option>
-          <option value="DSA">DSA</option>
-          <option value="ML">Machine Learning</option>
-          <option value="Other">Other</option>
-        </select>
-      </div>
-      <div style="margin-bottom:1.25rem">
-        <label style="display:block;font-size:0.8rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:0.5rem">Your Doubt <span style="color:var(--text3);font-style:italic;text-transform:none;letter-spacing:0">(min 10 characters)</span></label>
-        <textarea id="dbQuestion" class="db-input" rows="4" placeholder="Describe your doubt in detail..."></textarea>
-      </div>
-      <button class="submit-btn" onclick="dbSubmit()">Submit Anonymously</button>
-      <p id="dbMsg" style="margin-top:0.75rem;font-size:0.85rem;color:var(--accent);display:none">✓ Your doubt has been submitted!</p>
-    </div>
-  </div>
-</section>
+      const dbFallbackDoubts = [
+        {
+          id: "plh-math-1",
+          subject: "Math",
+          question:
+            "What is the difference between eigenvalues and eigenvectors, and when do we use them?",
+          answer:
+            "Eigenvalues scale an eigenvector direction. They are used in PCA, stability analysis and graph methods.",
+          time: "2 days ago",
+          upvotes: 24,
+        },
+        {
+          id: "plh-stats-1",
+          subject: "Stats",
+          question: "When should I use t-test vs z-test?",
+          answer:
+            "Use z-test when population standard deviation is known and sample size is large. Use t-test when it is unknown, especially for small samples.",
+          time: "3 days ago",
+          upvotes: 31,
+        },
+        {
+          id: "plh-python-1",
+          subject: "Python",
+          question:
+            "How does list comprehension differ from a normal for loop in Python?",
+          answer:
+            "List comprehensions are concise and often faster for simple transformations compared with loops using append.",
+          time: "1 day ago",
+          upvotes: 18,
+        },
+        {
+          id: "plh-dbms-1",
+          subject: "DBMS",
+          question: "What is the difference between 2NF and 3NF normalization?",
+          answer:
+            "2NF removes partial dependencies on composite keys. 3NF removes transitive dependencies between non-key attributes.",
+          time: "5 days ago",
+          upvotes: 15,
+        },
+        {
+          id: "plh-dsa-1",
+          subject: "DSA",
+          question: "When should I use BFS vs DFS for graph traversal?",
+          answer:
+            "BFS is ideal for shortest paths in unweighted graphs. DFS is useful for cycle checks, topological order and deep exploration.",
+          time: "4 days ago",
+          upvotes: 27,
+        },
+        {
+          id: "plh-ml-1",
+          subject: "ML",
+          question:
+            "What is the bias-variance tradeoff and how do I manage it?",
+          answer:
+            "High bias causes underfitting and high variance causes overfitting. Use regularization, validation and better data balance.",
+          time: "6 days ago",
+          upvotes: 42,
+        },
+      ];
 
-<!-- ===== STUDENT CONTRIBUTION + RESOURCE REQUEST ===== -->
-<section class="section rs" style="background:var(--bg2)">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:stretch" class="sc-contrib-grid">
+      function dbEscapeHtml(str) {
+        return String(str)
+          .replace(/&/g, "&amp;")
+          .replace(/</g, "&lt;")
+          .replace(/>/g, "&gt;")
+          .replace(/"/g, "&quot;")
+          .replace(/'/g, "&#39;");
+      }
 
-      <!-- Student Contribution -->
-      <div class="card-base" style="padding:2.5rem;display:flex;flex-direction:column;gap:0;border-color:rgba(212,160,23,0.2)">
-        <div style="font-size:2rem;margin-bottom:1rem">📤</div>
-        <div class="section-tag" style="margin-bottom:1rem;align-self:flex-start">Student Contribution</div>
-        <h3 style="font-family:Syne,sans-serif;font-weight:700;font-size:1.4rem;margin-bottom:0.5rem">Share Your Notes</h3>
-        <p style="color:var(--text2);font-size:0.9rem;margin-bottom:1.25rem"><strong style="color:var(--text)">Purpose:</strong> Community-driven academic content</p>
-        <ul style="list-style:none;padding:0;margin:0 0 1.75rem;display:flex;flex-direction:column;gap:0.6rem">
-          <li style="display:flex;align-items:center;gap:0.6rem;font-size:0.88rem;color:var(--text2)"><span style="color:var(--accent);font-size:0.9rem">✦</span> Upload notes & resources</li>
-          <li style="display:flex;align-items:center;gap:0.6rem;font-size:0.88rem;color:var(--text2)"><span style="color:var(--accent);font-size:0.9rem">✦</span> Help juniors & peers</li>
-          <li style="display:flex;align-items:center;gap:0.6rem;font-size:0.88rem;color:var(--text2)"><span style="color:var(--accent);font-size:0.9rem">✦</span> WebOps review ensures quality</li>
-        </ul>
-        <a href="#" class="submit-btn" style="align-self:flex-start">Submit a Resource</a>
-      </div>
+      function dbStorageGet(key, fallback) {
+        try {
+          const raw = window.localStorage.getItem(key);
+          if (raw === null) return fallback;
+          const parsed = JSON.parse(raw);
+          return parsed === null ? fallback : parsed;
+        } catch {
+          return fallback;
+        }
+      }
 
-      <!-- Resource Request -->
-      <div class="card-base" style="padding:2.5rem;display:flex;flex-direction:column;gap:0;border-color:rgba(212,160,23,0.2)">
-        <div style="font-size:2rem;margin-bottom:1rem">🎯</div>
-        <div class="section-tag" style="margin-bottom:1rem;align-self:flex-start">Resource Request</div>
-        <h3 style="font-family:Syne,sans-serif;font-weight:700;font-size:1.4rem;margin-bottom:0.5rem">Request a Resource</h3>
-        <p style="color:var(--text2);font-size:0.9rem;margin-bottom:1.25rem"><strong style="color:var(--text)">Purpose:</strong> Identify missing academic needs</p>
-        <ul style="list-style:none;padding:0;margin:0 0 1.75rem;display:flex;flex-direction:column;gap:0.6rem">
-          <li style="display:flex;align-items:center;gap:0.6rem;font-size:0.88rem;color:var(--text2)"><span style="color:var(--accent);font-size:0.9rem">✦</span> Request missing topics</li>
-          <li style="display:flex;align-items:center;gap:0.6rem;font-size:0.88rem;color:var(--text2)"><span style="color:var(--accent);font-size:0.9rem">✦</span> Exam-focused content</li>
-          <li style="display:flex;align-items:center;gap:0.6rem;font-size:0.88rem;color:var(--text2)"><span style="color:var(--accent);font-size:0.9rem">✦</span> Helps WebOps prioritize</li>
-        </ul>
-        <a href="#" class="submit-btn" style="align-self:flex-start;background:transparent;border:1px solid var(--accent);color:var(--accent)">Request a Resource</a>
-      </div>
+      function dbStorageSet(key, value) {
+        try {
+          window.localStorage.setItem(key, JSON.stringify(value));
+          return true;
+        } catch {
+          return false;
+        }
+      }
 
-    </div>
-  </div>
-</section>
+      function dbNowLabel() {
+        const now = new Date();
+        return now.toLocaleString([], {
+          day: "2-digit",
+          month: "short",
+          hour: "2-digit",
+          minute: "2-digit",
+        });
+      }
 
-<style>
-/* Doubts board */
-.db-filter { background:none;border:1px solid var(--border);color:var(--text2);padding:0.4rem 1rem;border-radius:99px;font-size:0.8rem;cursor:pointer;font-family:inherit;transition:all 0.2s; }
-.db-filter:hover { border-color:var(--accent);color:var(--accent); }
-.db-filter.active { background:var(--accent);border-color:var(--accent);color:#000;font-weight:700; }
-.db-card { background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:1.25rem 1.5rem;transition:border-color 0.2s; }
-.db-card:hover { border-color:rgba(212,160,23,0.3); }
-.db-tag { display:inline-block;font-size:0.65rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:rgba(212,160,23,0.1);color:var(--accent);border:1px solid rgba(212,160,23,0.25);padding:0.15rem 0.55rem;border-radius:99px;margin-bottom:0.75rem; }
-.db-question { font-size:0.95rem;font-weight:500;color:var(--text);margin-bottom:0.5rem;line-height:1.5; }
-.db-answer { font-size:0.85rem;color:var(--text2);line-height:1.6;margin-bottom:0.75rem;padding-left:0.75rem;border-left:2px solid rgba(212,160,23,0.25); }
-.db-footer { display:flex;align-items:center;justify-content:space-between;font-size:0.75rem;color:var(--text3); }
-.db-upvote { background:none;border:1px solid var(--border);color:var(--text2);padding:0.25rem 0.65rem;border-radius:99px;cursor:pointer;font-family:inherit;font-size:0.75rem;transition:all 0.2s; }
-.db-upvote:hover { border-color:var(--accent);color:var(--accent); }
-.db-input { width:100%;background:rgba(212,160,23,0.04);border:1px solid var(--border);border-radius:10px;padding:0.75rem 1rem;color:var(--text);font-family:inherit;font-size:0.9rem;transition:border-color 0.2s;box-sizing:border-box; }
-.db-input:focus { outline:none;border-color:var(--accent); }
-.db-input option { background:var(--bg2);color:var(--text); }
-@media(max-width:768px){ .sc-contrib-grid { grid-template-columns:1fr !important; } }
-</style>
+      function dbNormalizeSubject(subject) {
+        const value = String(subject || "").trim();
+        const map = {
+          math: "Math",
+          mathematics: "Math",
+          stats: "Stats",
+          statistics: "Stats",
+          python: "Python",
+          dbms: "DBMS",
+          dsa: "DSA",
+          ml: "ML",
+          "machine learning": "ML",
+          other: "Other",
+          "my-doubts": "my-doubts",
+          "answer-doubts": "answer-doubts",
+          all: "all",
+        };
+        return map[value.toLowerCase()] || value || "Other";
+      }
 
-<script>
-// ===== DOUBTS BOARD DATA =====
-const dbDoubts = [
-  { subject:'Math', question:'What is the difference between eigenvalues and eigenvectors, and when do we use them?', answer:'Eigenvalues (λ) scale the eigenvector direction. If Av = λv, then v is the eigenvector and λ is the eigenvalue. Used in PCA, stability analysis, and graph theory.', time:'2 days ago', upvotes:24 },
-  { subject:'Python', question:'How does list comprehension differ from a normal for loop in Python?', answer:'List comprehension is more concise and often faster. [x**2 for x in range(10)] vs a for loop with append(). Use comprehension for simple transformations.', time:'1 day ago', upvotes:18 },
-  { subject:'Stats', question:'When should I use t-test vs z-test?', answer:'Use z-test when population std dev is known and n > 30. Use t-test when std dev is unknown or n < 30. For small samples, t-test is almost always the right choice.', time:'3 days ago', upvotes:31 },
-  { subject:'DBMS', question:'What is the difference between 2NF and 3NF normalization?', answer:'2NF removes partial dependencies (non-key attributes depending on part of a composite key). 3NF removes transitive dependencies (non-key attributes depending on other non-key attributes).', time:'5 days ago', upvotes:15 },
-  { subject:'DSA', question:'When should I use BFS vs DFS for graph traversal?', answer:'BFS is best for finding shortest paths in unweighted graphs. DFS is better for topological sorting, cycle detection, and pathfinding in mazes. BFS uses a queue, DFS uses a stack.', time:'4 days ago', upvotes:27 },
-  { subject:'ML', question:'What is the bias-variance tradeoff and how do I manage it?', answer:'High bias = underfitting (model too simple). High variance = overfitting (model too complex). Use regularization, cross-validation, and more data to balance the tradeoff.', time:'6 days ago', upvotes:42 },
-];
+      function dbReadStudentDoubts() {
+        const parsed = dbStorageGet(DB_STUDENT_KEY, []);
+        return Array.isArray(parsed) ? parsed : [];
+      }
 
-let dbCurrentFilter = 'all';
-let dbVotes = {};
+      function dbWriteStudentDoubts(doubts) {
+        dbStorageSet(DB_STUDENT_KEY, doubts);
+      }
 
-function dbRender(filter) {
-  const list = document.getElementById('dbList');
-  if (!list) return;
-  const filtered = filter === 'all' ? dbDoubts : dbDoubts.filter(d => d.subject === filter);
-  list.innerHTML = '';
-  if (!filtered.length) {
-    list.innerHTML = '<p style="text-align:center;color:var(--text3);padding:2rem">No doubts in this subject yet.</p>';
-    return;
-  }
-  filtered.forEach((d, i) => {
-    const idx = dbDoubts.indexOf(d);
-    const votes = (dbVotes[idx] || 0) + d.upvotes;
-    const div = document.createElement('div');
-    div.className = 'db-card rc';
-    div.innerHTML = `
-      <span class="db-tag">${d.subject}</span>
-      <div class="db-question">${d.question}</div>
-      ${d.answer ? `<div class="db-answer">${d.answer}</div>` : ''}
+      function dbReadVotedMap() {
+        const parsed = dbStorageGet(DB_VOTED_KEY, {});
+        return parsed && typeof parsed === "object" && !Array.isArray(parsed)
+          ? parsed
+          : {};
+      }
+
+      function dbWriteVotedMap(votedMap) {
+        dbStorageSet(DB_VOTED_KEY, votedMap);
+      }
+
+      function dbReadAnswersMap() {
+        const parsed = dbStorageGet(DB_ANSWERS_KEY, {});
+        return parsed && typeof parsed === "object" && !Array.isArray(parsed)
+          ? parsed
+          : {};
+      }
+
+      function dbWriteAnswersMap(answerMap) {
+        dbStorageSet(DB_ANSWERS_KEY, answerMap);
+      }
+
+      function dbHydrateDoubt(d, index = 0, prefix = "plh") {
+        const subject = dbNormalizeSubject(d.subject);
+        const q = String(d.question || "").trim();
+        if (!q) return null;
+        const id = d.id || `${prefix}-${subject.toLowerCase()}-${index + 1}`;
+        const savedAnswer = dbAnswers[id]
+          ? String(dbAnswers[id].answer || "").trim()
+          : "";
+        return {
+          id,
+          subject,
+          question: q,
+          answer: savedAnswer || String(d.answer || "").trim(),
+          time: String(d.time || "Recently"),
+          upvotes: Number.isFinite(Number(d.upvotes)) ? Number(d.upvotes) : 0,
+          isStudent: Boolean(d.isStudent),
+        };
+      }
+
+      function dbSyncMyDoubtsButton() {
+        const myBtn = document.getElementById("dbMyDoubtsBtn");
+        if (!myBtn) return;
+        const count = dbDoubts.filter((d) => d.isStudent).length;
+        myBtn.style.display = count > 0 ? "inline-flex" : "none";
+        myBtn.textContent = count > 0 ? `My Doubts (${count})` : "My Doubts";
+      }
+
+      function setActiveDbFilterButton(subject) {
+        const target = document.querySelector(
+          `.db-filter[data-db-filter="${subject}"]`,
+        );
+        document
+          .querySelectorAll(".db-filter")
+          .forEach((b) => b.classList.remove("active"));
+        if (target) {
+          target.classList.add("active");
+          return;
+        }
+        const allBtn = document.querySelector(
+          '.db-filter[data-db-filter="all"]',
+        );
+        if (allBtn) {
+          allBtn.classList.add("active");
+          dbCurrentFilter = "all";
+        }
+      }
+
+      function dbGetFilteredDoubts(filter) {
+        const active = dbNormalizeSubject(filter || dbCurrentFilter);
+        if (active === "my-doubts") return dbDoubts.filter((d) => d.isStudent);
+        if (active === "answer-doubts")
+          return dbDoubts.filter((d) => !String(d.answer || "").trim());
+        if (active === "all") return dbDoubts;
+        return dbDoubts.filter((d) => dbNormalizeSubject(d.subject) === active);
+      }
+
+      function dbRender(filter) {
+        const list = document.getElementById("dbList");
+        if (!list) return;
+        const activeFilter = dbNormalizeSubject(filter || dbCurrentFilter);
+        const filtered = dbGetFilteredDoubts(activeFilter);
+        dbSyncMyDoubtsButton();
+
+        list.innerHTML = "";
+        if (!filtered.length) {
+          const label =
+            activeFilter === "my-doubts"
+              ? "You have not posted any doubts yet."
+              : activeFilter === "answer-doubts"
+                ? "No unanswered doubts right now."
+                : "No doubts in this subject yet.";
+          list.innerHTML = `<p style="text-align:center;color:var(--text3);padding:2rem">${label}</p>`;
+          return;
+        }
+
+        filtered.forEach((d) => {
+          const hasVoted = Boolean(dbVoted[d.id]);
+          const votes = d.upvotes + (hasVoted ? 1 : 0);
+          const showAnswerComposer =
+            activeFilter === "answer-doubts" && !d.answer;
+
+          const div = document.createElement("div");
+          div.className = "db-card";
+          div.innerHTML = `
+      <span class="db-tag">${dbEscapeHtml(d.subject)}</span>
+      <div class="db-question">${dbEscapeHtml(d.question)}</div>
+      ${d.answer ? `<div class="db-answer">${dbEscapeHtml(d.answer)}</div>` : ""}
+      ${
+        showAnswerComposer
+          ? `
+        <div style="margin:0.75rem 0 0.5rem">
+          <textarea id="dbAns-${d.id}" class="db-input" rows="3" placeholder="Write an answer for the community..."></textarea>
+          <button class="submit-btn" style="margin-top:0.55rem;padding:0.4rem 0.9rem" onclick="dbPostAnswer('${d.id}')">Post Answer</button>
+        </div>
+      `
+          : ""
+      }
       <div class="db-footer">
-        <span>${d.time}</span>
-        <button class="db-upvote" onclick="dbUpvote(${idx},this)">👍 ${votes}</button>
+        <span>${dbEscapeHtml(d.time)}</span>
+        <button class="db-upvote" onclick="dbUpvote('${d.id}',this)" ${hasVoted ? "disabled" : ""}>${hasVoted ? "✓ Voted" : "👍 " + votes}</button>
       </div>`;
-    list.appendChild(div);
-  });
-}
+          list.appendChild(div);
+        });
+      }
 
-function dbFilter(subject, btn) {
-  dbCurrentFilter = subject;
-  document.querySelectorAll('.db-filter').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  dbRender(subject);
-}
+      function dbFilter(subject, btn) {
+        dbCurrentFilter = dbNormalizeSubject(subject);
+        if (btn) {
+          document
+            .querySelectorAll(".db-filter")
+            .forEach((b) => b.classList.remove("active"));
+          btn.classList.add("active");
+        } else {
+          setActiveDbFilterButton(dbCurrentFilter);
+        }
+        dbRender(dbCurrentFilter);
+      }
 
-function dbUpvote(i, btn) {
-  dbVotes[i] = (dbVotes[i] || 0) + 1;
-  const base = dbDoubts[i].upvotes;
-  btn.textContent = '👍 ' + (base + dbVotes[i]);
-  btn.style.borderColor = 'var(--accent)';
-  btn.style.color = 'var(--accent)';
-  btn.disabled = true;
-}
+      function dbUpvote(id, btn) {
+        if (dbVoted[id]) return;
+        dbVoted[id] = true;
+        dbWriteVotedMap(dbVoted);
+        btn.style.borderColor = "var(--accent)";
+        btn.style.color = "var(--accent)";
+        btn.textContent = "✓ Voted";
+        btn.disabled = true;
+      }
 
-function dbSubmit() {
-  const sub = document.getElementById('dbSubject').value;
-  const q = document.getElementById('dbQuestion').value.trim();
-  const msg = document.getElementById('dbMsg');
-  if (!sub || q.length < 10) { msg.style.color='#e74c3c'; msg.textContent='⚠ Please select a subject and write at least 10 characters.'; msg.style.display='block'; return; }
-  dbDoubts.unshift({ subject:sub, question:q, answer:'', time:'Just now', upvotes:0 });
-  dbRender(dbCurrentFilter);
-  document.getElementById('dbSubject').value = '';
-  document.getElementById('dbQuestion').value = '';
-  msg.style.color = 'var(--accent)';
-  msg.textContent = '✓ Your doubt has been submitted!';
-  msg.style.display = 'block';
-  setTimeout(() => msg.style.display = 'none', 3000);
-}
+      function dbSubmit() {
+        const sub = dbNormalizeSubject(
+          document.getElementById("dbSubject").value,
+        );
+        const q = document.getElementById("dbQuestion").value.trim();
+        const msg = document.getElementById("dbMsg");
+        if (!sub || q.length < 10) {
+          msg.style.color = "#e74c3c";
+          msg.textContent =
+            "⚠ Please select a subject and write at least 10 characters.";
+          msg.style.display = "block";
+          return;
+        }
 
-// Init doubts on load
-document.addEventListener('DOMContentLoaded', () => dbRender('all'));
-</script>
+        const newDoubt = dbHydrateDoubt(
+          {
+            id: `stu-${Date.now()}-${Math.random().toString(36).slice(2, 7)}`,
+            subject: sub,
+            question: q,
+            answer: "",
+            time: dbNowLabel(),
+            upvotes: 0,
+            isStudent: true,
+          },
+          0,
+          "stu",
+        );
 
-<style>
-/* ===== STUDY CORNER STYLES ===== */
+        if (!newDoubt) return;
 
-/* Level cards: 3 in one horizontal row */
-.sc-levels-grid {
-  display:grid;
-  grid-template-columns:repeat(3, 1fr);
-  gap:1.5rem;
-  transition:all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
+        dbDoubts.unshift(newDoubt);
+        const saved = dbReadStudentDoubts();
+        saved.unshift(newDoubt);
+        dbWriteStudentDoubts(saved);
 
-/* Level cards */
-.sc-level-card {
-  cursor:pointer;
-  transition:all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border-color:rgba(212,160,23,0.15) !important;
-}
-.sc-level-card:hover { transform:translateY(-6px); box-shadow:0 20px 50px rgba(0,0,0,0.35); }
-.sc-level-card.active { border-color:var(--accent) !important; box-shadow:0 0 0 2px rgba(212,160,23,0.3), 0 20px 50px rgba(0,0,0,0.3); }
-.sc-card-emoji { font-size:1.8rem; margin-bottom:0.5rem; }
-.sc-card-title { font-family:Syne,sans-serif; font-weight:700; margin-bottom:0.4rem; font-size:1.1rem; }
-.sc-card-desc { font-size:0.82rem; margin-bottom:1rem; }
-.sc-card-stats { display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1rem; }
-.sc-stat-badge { font-size:0.68rem; font-weight:600; letter-spacing:0.06em; text-transform:uppercase; background:rgba(212,160,23,0.1); color:var(--accent); border:1px solid rgba(212,160,23,0.25); padding:0.2rem 0.6rem; border-radius:99px; }
-.sc-browse-btn { font-size:0.82rem; padding:0.5rem 1.1rem; pointer-events:none; }
+        dbCurrentFilter = sub;
+        setActiveDbFilterButton(sub);
+        dbRender(dbCurrentFilter);
 
-/* Subject badge strip — sits flush above the notes panel */
-.sc-subject-strip {
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:16px 16px 0 0;
-  padding:1.25rem 1.5rem;
-}
-@keyframes fadeSlideIn {
-  from { opacity:0; transform:translateY(12px); }
-  to { opacity:1; transform:translateY(0); }
-}
-.sc-strip-header {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  margin-bottom:1rem;
-}
-.sc-strip-label {
-  font-family:Syne,sans-serif;
-  font-weight:700;
-  font-size:1rem;
-  color:var(--text);
-}
-.sc-badges-row {
-  display:flex;
-  flex-wrap:wrap;
-  gap:0.5rem;
-}
-.sc-back-btn {
-  background:none;
-  border:1px solid var(--border);
-  color:var(--text2);
-  padding:0.35rem 0.9rem;
-  border-radius:99px;
-  font-size:0.78rem;
-  cursor:pointer;
-  font-family:inherit;
-  transition:all 0.2s;
-}
-.sc-back-btn:hover { border-color:var(--accent); color:var(--accent); }
+        document.getElementById("dbSubject").value = "";
+        document.getElementById("dbQuestion").value = "";
+        msg.style.color = "var(--accent)";
+        msg.textContent =
+          "✓ Your doubt has been submitted! Also visible in My Doubts.";
+        msg.style.display = "block";
+        setTimeout(() => {
+          msg.style.display = "none";
+        }, 3000);
+      }
 
-/* Subject badge pills */
-.sc-subj-badge {
-  display:inline-flex;
-  align-items:center;
-  gap:0.35rem;
-  background:rgba(212,160,23,0.06);
-  border:1px solid var(--border);
-  border-radius:99px;
-  padding:0.4rem 0.9rem;
-  cursor:pointer;
-  font-family:inherit;
-  font-size:0.82rem;
-  color:var(--text2);
-  transition:all 0.2s;
-  white-space:nowrap;
-}
-.sc-subj-badge:hover {
-  background:rgba(212,160,23,0.1);
-  border-color:rgba(212,160,23,0.3);
-  color:var(--text);
-  transform:translateY(-2px);
-}
-.sc-subj-badge.active {
-  background:rgba(212,160,23,0.15);
-  border-color:var(--accent);
-  color:var(--accent);
-  font-weight:600;
-  box-shadow:0 0 0 1px rgba(212,160,23,0.2);
-}
+      function dbPostAnswer(id) {
+        const input = document.getElementById(`dbAns-${id}`);
+        if (!input) return;
+        const answerText = input.value.trim();
+        if (answerText.length < 8) {
+          input.style.borderColor = "#e74c3c";
+          return;
+        }
 
-/* Tabs & resources */
-.sc-tab-bar { display:flex; gap:0.5rem; margin:1.5rem 0 1.25rem; flex-wrap:wrap; }
-.sc-tab { background:none; border:1px solid var(--border); color:var(--text2); padding:0.45rem 1.1rem; border-radius:99px; font-size:0.82rem; cursor:pointer; font-family:inherit; transition:all 0.2s; }
-.sc-tab:hover { border-color:var(--accent); color:var(--accent); }
-.sc-tab.active { background:var(--accent); border-color:var(--accent); color:#000; font-weight:700; }
-.sc-resource-item { display:flex; align-items:center; justify-content:space-between; padding:0.85rem 1rem; background:rgba(212,160,23,0.03); border:1px solid var(--border); border-radius:10px; text-decoration:none; color:var(--text); font-size:0.88rem; transition:all 0.2s; margin-bottom:0.5rem; }
-.sc-resource-item:hover { background:rgba(212,160,23,0.08); border-color:rgba(212,160,23,0.3); transform:translateX(4px); }
-.sc-badge { font-size:0.65rem; font-weight:700; letter-spacing:0.08em; text-transform:uppercase; background:rgba(212,160,23,0.15); color:var(--accent); border:1px solid rgba(212,160,23,0.3); padding:0.15rem 0.55rem; border-radius:99px; }
-.sc-empty { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:3rem; color:var(--text3); gap:0.75rem; }
+        dbAnswers[id] = {
+          answer: answerText,
+          time: dbNowLabel(),
+        };
+        dbWriteAnswersMap(dbAnswers);
 
-/* Author card */
-.sc-author-card {
-  background:rgba(212,160,23,0.04);
-  border:1px solid var(--border);
-  border-radius:12px;
-  margin-bottom:0.75rem;
-  overflow:hidden;
-  transition:border-color 0.2s;
-}
-.sc-author-card:hover { border-color:rgba(212,160,23,0.3); }
-.sc-author-header {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0.85rem 1.15rem;
-  cursor:pointer;
-  user-select:none;
-  transition:background 0.2s;
-}
-.sc-author-header:hover { background:rgba(212,160,23,0.06); }
-.sc-author-name { font-weight:600; font-size:0.9rem; color:var(--text); display:flex; align-items:center; gap:0.5rem; }
-.sc-author-count { font-size:0.7rem; color:var(--text3); font-weight:400; }
-.sc-author-chevron { transition:transform 0.25s; color:var(--text3); }
-.sc-author-card.open .sc-author-chevron { transform:rotate(180deg); }
-.sc-author-body { max-height:0; overflow:hidden; transition:max-height 0.35s ease; }
-.sc-author-card.open .sc-author-body { max-height:2000px; }
-.sc-author-notes { padding:0 1rem 1rem; }
+        dbDoubts = dbDoubts.map((d) =>
+          d.id === id ? { ...d, answer: answerText } : d,
+        );
+        dbRender(dbCurrentFilter);
+      }
 
-/* Year group for PYQs */
-.sc-year-group { margin-bottom:1.25rem; }
-.sc-year-label { font-family:Syne,sans-serif; font-weight:700; font-size:0.9rem; color:var(--accent); margin-bottom:0.5rem; padding-bottom:0.35rem; border-bottom:1px solid rgba(212,160,23,0.15); display:flex; align-items:center; gap:0.5rem; }
-.sc-year-count { font-size:0.7rem; color:var(--text3); font-weight:400; }
+      async function dbLoadPlaceholders() {
+        try {
+          const response = await fetch(DB_JSON_PATH, { cache: "no-store" });
+          if (!response.ok) throw new Error("Failed to load doubts.json");
+          const data = await response.json();
+          if (!Array.isArray(data))
+            throw new Error("Invalid doubts.json format");
+          return data;
+        } catch (err) {
+          console.warn("Doubts JSON load failed, using fallback data.", err);
+          return dbFallbackDoubts;
+        }
+      }
 
-/* Responsive */
-@media(max-width:900px) {
-  .sc-levels-grid { grid-template-columns:1fr; }
-}
-@media(max-width:768px) {
-  .sc-levels-grid { grid-template-columns:1fr; }
-  .sc-badges-row { max-height:200px; overflow-y:auto; }
-}
-</style>
+      async function dbInit() {
+        dbVoted = dbReadVotedMap();
+        dbAnswers = dbReadAnswersMap();
 
-<script src="scData_generated.js"></script>
-<script>
+        const placeholderRaw = await dbLoadPlaceholders();
+        const placeholders = placeholderRaw
+          .map((d, i) => dbHydrateDoubt(d, i, "plh"))
+          .filter(Boolean);
+        const studentDoubts = dbReadStudentDoubts()
+          .map((d, i) => dbHydrateDoubt(d, i, "stu"))
+          .filter(Boolean);
 
-let scCurrentSubject = null;
-let scCurrentLevel = null;
+        dbDoubts = [...studentDoubts, ...placeholders];
+        dbCurrentFilter = "all";
+        setActiveDbFilterButton("all");
+        dbRender("all");
+      }
 
-// Attach click handlers to level cards
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.sc-level-card').forEach(card => {
-    card.addEventListener('click', () => {
-      scLoadLevel(card.dataset.level);
-    });
-  });
-});
+      document.addEventListener("DOMContentLoaded", dbInit);
+    </script>
 
-function scLoadLevel(level) {
-  scCurrentLevel = level;
-  scCurrentSubject = null;
+    <style>
+      /* ===== STUDY CORNER STYLES ===== */
 
-  // Highlight active level card
-  document.querySelectorAll('.sc-level-card').forEach(c => {
-    c.classList.toggle('active', c.getAttribute('data-level') === level);
-  });
+      /* Level cards: 3 in one horizontal row */
+      .sc-levels-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      }
 
-  const names = { foundation:'🌱 Foundation', diploma:'📐 Diploma', bs:'🎓 BS Degree' };
-  document.getElementById('scStripLabel').textContent = names[level] + ' — Subjects';
+      /* Level cards */
+      .sc-level-card {
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border-color: rgba(212, 160, 23, 0.15) !important;
+      }
+      .sc-level-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+      }
+      .sc-level-card.active {
+        border-color: var(--accent) !important;
+        box-shadow:
+          0 0 0 2px rgba(212, 160, 23, 0.3),
+          0 20px 50px rgba(0, 0, 0, 0.3);
+      }
+      .sc-card-emoji {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+      }
+      .sc-card-title {
+        font-family: Syne, sans-serif;
+        font-weight: 700;
+        margin-bottom: 0.4rem;
+        font-size: 1.1rem;
+      }
+      .sc-card-desc {
+        font-size: 0.82rem;
+        margin-bottom: 1rem;
+      }
+      .sc-card-stats {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        margin-bottom: 1rem;
+      }
+      .sc-stat-badge {
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        background: rgba(212, 160, 23, 0.1);
+        color: var(--accent);
+        border: 1px solid rgba(212, 160, 23, 0.25);
+        padding: 0.2rem 0.6rem;
+        border-radius: 99px;
+      }
+      .sc-browse-btn {
+        font-size: 0.82rem;
+        padding: 0.5rem 1.1rem;
+        pointer-events: none;
+      }
 
-  // Build subject badge pills
-  const subList = document.getElementById('scSubjectList');
-  subList.innerHTML = '';
-  let firstBadge = null;
-  scData[level].forEach((sub, i) => {
-    const badge = document.createElement('button');
-    badge.className = 'sc-subj-badge';
-    badge.textContent = sub.subject;
-    badge.onclick = () => {
-      scCurrentSubject = sub;
-      document.querySelectorAll('.sc-subj-badge').forEach(b => b.classList.remove('active'));
-      badge.classList.add('active');
-      scSelectSubject();
-    };
-    subList.appendChild(badge);
-    if (i === 0) firstBadge = badge;
-  });
+      /* Subject badge strip — sits flush above the notes panel */
+      .sc-subject-strip {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 16px 16px 0 0;
+        padding: 1.25rem 1.5rem;
+      }
+      @keyframes fadeSlideIn {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .sc-strip-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+      }
+      .sc-strip-label {
+        font-family: Syne, sans-serif;
+        font-weight: 700;
+        font-size: 1rem;
+        color: var(--text);
+      }
+      .sc-badges-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .sc-back-btn {
+        background: none;
+        border: 1px solid var(--border);
+        color: var(--text2);
+        padding: 0.35rem 0.9rem;
+        border-radius: 99px;
+        font-size: 0.78rem;
+        cursor: pointer;
+        font-family: inherit;
+        transition: all 0.2s;
+      }
+      .sc-back-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
 
-  // Show the combined section
-  document.getElementById('scResourceSection').style.display = 'block';
+      /* Subject badge pills */
+      .sc-subj-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.35rem;
+        background: rgba(212, 160, 23, 0.06);
+        border: 1px solid var(--border);
+        border-radius: 99px;
+        padding: 0.4rem 0.9rem;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 0.82rem;
+        color: var(--text2);
+        transition: all 0.2s;
+        white-space: nowrap;
+      }
+      .sc-subj-badge:hover {
+        background: rgba(212, 160, 23, 0.1);
+        border-color: rgba(212, 160, 23, 0.3);
+        color: var(--text);
+        transform: translateY(-2px);
+      }
+      .sc-subj-badge.active {
+        background: rgba(212, 160, 23, 0.15);
+        border-color: var(--accent);
+        color: var(--accent);
+        font-weight: 600;
+        box-shadow: 0 0 0 1px rgba(212, 160, 23, 0.2);
+      }
 
-  // Auto-select the first subject
-  if (firstBadge && scData[level].length > 0) {
-    scCurrentSubject = scData[level][0];
-    firstBadge.classList.add('active');
-    scSelectSubject();
-  }
+      /* Tabs & resources */
+      .sc-tab-bar {
+        display: flex;
+        gap: 0.5rem;
+        margin: 1.5rem 0 1.25rem;
+        flex-wrap: wrap;
+      }
+      .sc-tab {
+        background: none;
+        border: 1px solid var(--border);
+        color: var(--text2);
+        padding: 0.45rem 1.1rem;
+        border-radius: 99px;
+        font-size: 0.82rem;
+        cursor: pointer;
+        font-family: inherit;
+        transition: all 0.2s;
+      }
+      .sc-tab:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .sc-tab.active {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: #000;
+        font-weight: 700;
+      }
+      .sc-resource-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.85rem 1rem;
+        background: rgba(212, 160, 23, 0.03);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        text-decoration: none;
+        color: var(--text);
+        font-size: 0.88rem;
+        transition: all 0.2s;
+        margin-bottom: 0.5rem;
+      }
+      .sc-resource-item:hover {
+        background: rgba(212, 160, 23, 0.08);
+        border-color: rgba(212, 160, 23, 0.3);
+        transform: translateX(4px);
+      }
+      .sc-badge {
+        font-size: 0.65rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        background: rgba(212, 160, 23, 0.15);
+        color: var(--accent);
+        border: 1px solid rgba(212, 160, 23, 0.3);
+        padding: 0.15rem 0.55rem;
+        border-radius: 99px;
+      }
+      .sc-empty {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 3rem;
+        color: var(--text3);
+        gap: 0.75rem;
+      }
 
-  // Scroll to the section
-  setTimeout(() => {
-    document.getElementById('scResourceSection').scrollIntoView({ behavior:'smooth', block:'start' });
-  }, 100);
-}
+      /* Author card */
+      .sc-author-card {
+        background: rgba(212, 160, 23, 0.04);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        margin-bottom: 0.75rem;
+        overflow: hidden;
+        transition: border-color 0.2s;
+      }
+      .sc-author-card:hover {
+        border-color: rgba(212, 160, 23, 0.3);
+      }
+      .sc-author-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.85rem 1.15rem;
+        cursor: pointer;
+        user-select: none;
+        transition: background 0.2s;
+      }
+      .sc-author-header:hover {
+        background: rgba(212, 160, 23, 0.06);
+      }
+      .sc-author-name {
+        font-weight: 600;
+        font-size: 0.9rem;
+        color: var(--text);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .sc-author-count {
+        font-size: 0.7rem;
+        color: var(--text3);
+        font-weight: 400;
+      }
+      .sc-author-chevron {
+        transition: transform 0.25s;
+        color: var(--text3);
+      }
+      .sc-author-card.open .sc-author-chevron {
+        transform: rotate(180deg);
+      }
+      .sc-author-body {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease;
+      }
+      .sc-author-card.open .sc-author-body {
+        max-height: 2000px;
+      }
+      .sc-author-notes {
+        padding: 0 1rem 1rem;
+      }
 
-function scSelectSubject() {
-  if (!scCurrentSubject) return;
-  scShowResources('notes');
-}
+      /* Year group for PYQs */
+      .sc-year-group {
+        margin-bottom: 1.25rem;
+      }
+      .sc-year-label {
+        font-family: Syne, sans-serif;
+        font-weight: 700;
+        font-size: 0.9rem;
+        color: var(--accent);
+        margin-bottom: 0.5rem;
+        padding-bottom: 0.35rem;
+        border-bottom: 1px solid rgba(212, 160, 23, 0.15);
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .sc-year-count {
+        font-size: 0.7rem;
+        color: var(--text3);
+        font-weight: 400;
+      }
 
-function scReset() {
-  document.querySelectorAll('.sc-level-card').forEach(c => c.classList.remove('active'));
-  document.getElementById('scResourceSection').style.display = 'none';
-  scCurrentLevel = null;
-  scCurrentSubject = null;
-  document.getElementById('levelPicker').scrollIntoView({ behavior:'smooth', block:'start' });
-}
+      /* Responsive */
+      @media (max-width: 900px) {
+        .sc-levels-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+      @media (max-width: 768px) {
+        .sc-levels-grid {
+          grid-template-columns: 1fr;
+        }
+        .sc-badges-row {
+          max-height: 200px;
+          overflow-y: auto;
+        }
+      }
+    </style>
 
-/* ===== HELPER: Extract author from title ===== */
-function parseAuthor(title) {
-  const m = title.match(/\(by\s+(.+?)\)\s*$/i);
-  return m ? m[1].trim() : null;
-}
+    <script src="scData_generated.js"></script>
+    <script>
+      let scCurrentSubject = null;
+      let scCurrentLevel = null;
 
-/* ===== HELPER: Strip author and subject from title ===== */
-function scCleanTitle(title) {
-  // Remove (by Author) part
-  let clean = title.replace(/\s*\(by\s+.+?\)\s*$/i, '');
+      // Attach click handlers to level cards
+      document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll(".sc-level-card").forEach((card) => {
+          card.addEventListener("click", () => {
+            scLoadLevel(card.dataset.level);
+          });
+        });
+      });
 
-  // Build list of subject name patterns to strip (case-insensitive)
-  // Covers: Mathematics/Maths/Math 1/2, Statistics/Stats 1/2,
-  // English 1/2, CT/Computational Thinking, DBMS, PDSA,
-  // Python, MAD/AppDev/Modern Application Development 1/2,
-  // ML Foundations, Database Management System, Programming in Python, etc.
-  const subjectPatterns = [
-    /^(?:mathematics|maths|math)[\s\-]*(?:for\s+data\s+science\s+)?[12iI]*\s*/i,
-    /^(?:statistics|stats)[\s\-]*[12iI]*\s*/i,
-    /^(?:english)[\s\-]*[12iI]*\s*/i,
-    /^(?:computational[\s_]*thinking)\s*/i,
-    /^(?:ct)\s+/i,
-    /^(?:database\s+management\s+system[s]?|dbms)[\s\-]*/i,
-    /^(?:programming[\s,]*(?:dsa|data\s+structures?\s*(?:&|and)\s*algorithms?)?\s*(?:using\s+)?(?:in\s+)?python|pdsa|python)\s*/i,
-    /^(?:modern\s+application\s+development|mad|appdev|app[\s\-]?dev)[\s\-]*[12iI]*\s*/i,
-    /^(?:ml\s+foundations?)\s*/i,
-    /^(?:machine\s+learning)[\s\-]*(?:foundations?|techniques?)?\s*/i,
-    /^(?:business\s+data\s+management|bdm)\s*/i,
-    /^(?:tools\s+in\s+data\s+science|tds)\s*/i,
-    /^(?:software\s+(?:engineering|testing)|se|st)\s+/i,
-    /^(?:iitm\s+(?:bs[c]?|notes?))\s*/i,
-  ];
+      function scLoadLevel(level) {
+        scCurrentLevel = level;
+        scCurrentSubject = null;
 
-  for (const pat of subjectPatterns) {
-    clean = clean.replace(pat, '');
-  }
+        // Highlight active level card
+        document.querySelectorAll(".sc-level-card").forEach((c) => {
+          c.classList.toggle("active", c.getAttribute("data-level") === level);
+        });
 
-  // Clean up leading separators/noise after stripping: " - ", ":", "--", "–"
-  clean = clean.replace(/^[\s\-–:]+/, '');
-  // Trim excess whitespace
-  clean = clean.replace(/\s{2,}/g, ' ').trim();
-  // Capitalize first letter if it got lowercased
-  if (clean.length > 0) {
-    clean = clean.charAt(0).toUpperCase() + clean.slice(1);
-  }
-  return clean || title;
-}
+        const names = {
+          foundation: "🌱 Foundation",
+          diploma: "📐 Diploma",
+          bs: "🎓 BS Degree",
+        };
+        document.getElementById("scStripLabel").textContent =
+          names[level] + " — Subjects";
 
-/* ===== HELPER: Extract year from PYQ title ===== */
-function parsePYQYear(title) {
-  // Match patterns like "January 2024", "May 2023", "September 2021", "March 2021", "Jan 2024", "Sep 2024"
-  const m = title.match(/(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{4})/i);
-  if (m) return m[2]; // return year
-  // Try just a 4-digit year
-  const y = title.match(/\b(20\d{2})\b/);
-  return y ? y[1] : 'Other';
-}
+        // Build subject badge pills
+        const subList = document.getElementById("scSubjectList");
+        subList.innerHTML = "";
+        let firstBadge = null;
+        scData[level].forEach((sub, i) => {
+          const badge = document.createElement("button");
+          badge.className = "sc-subj-badge";
+          badge.textContent = sub.subject;
+          badge.onclick = () => {
+            scCurrentSubject = sub;
+            document
+              .querySelectorAll(".sc-subj-badge")
+              .forEach((b) => b.classList.remove("active"));
+            badge.classList.add("active");
+            scSelectSubject();
+          };
+          subList.appendChild(badge);
+          if (i === 0) firstBadge = badge;
+        });
 
-/* ===== RENDER RESOURCES ===== */
-function scShowResources(type) {
-  if (!scCurrentSubject) return;
-  const sub = scCurrentSubject;
-  const list = sub.resources[type] || [];
-  const panel = document.getElementById('scPanel');
+        // Show the combined section
+        document.getElementById("scResourceSection").style.display = "block";
 
-  let tabsHtml = `
+        // Auto-select the first subject
+        if (firstBadge && scData[level].length > 0) {
+          scCurrentSubject = scData[level][0];
+          firstBadge.classList.add("active");
+          scSelectSubject();
+        }
+
+        // Scroll to the section
+        setTimeout(() => {
+          document
+            .getElementById("scResourceSection")
+            .scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 100);
+      }
+
+      function scSelectSubject() {
+        if (!scCurrentSubject) return;
+        scShowResources("notes");
+      }
+
+      function scReset() {
+        document
+          .querySelectorAll(".sc-level-card")
+          .forEach((c) => c.classList.remove("active"));
+        document.getElementById("scResourceSection").style.display = "none";
+        scCurrentLevel = null;
+        scCurrentSubject = null;
+        document
+          .getElementById("levelPicker")
+          .scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      /* ===== HELPER: Extract author from title ===== */
+      function parseAuthor(title) {
+        const m = title.match(/\(by\s+(.+?)\)\s*$/i);
+        return m ? m[1].trim() : null;
+      }
+
+      /* ===== HELPER: Strip author and subject from title ===== */
+      function scCleanTitle(title) {
+        // Remove (by Author) part
+        let clean = title.replace(/\s*\(by\s+.+?\)\s*$/i, "");
+
+        // Build list of subject name patterns to strip (case-insensitive)
+        // Covers: Mathematics/Maths/Math 1/2, Statistics/Stats 1/2,
+        // English 1/2, CT/Computational Thinking, DBMS, PDSA,
+        // Python, MAD/AppDev/Modern Application Development 1/2,
+        // ML Foundations, Database Management System, Programming in Python, etc.
+        const subjectPatterns = [
+          /^(?:mathematics|maths|math)[\s\-]*(?:for\s+data\s+science\s+)?[12iI]*\s*/i,
+          /^(?:statistics|stats)[\s\-]*[12iI]*\s*/i,
+          /^(?:english)[\s\-]*[12iI]*\s*/i,
+          /^(?:computational[\s_]*thinking)\s*/i,
+          /^(?:ct)\s+/i,
+          /^(?:database\s+management\s+system[s]?|dbms)[\s\-]*/i,
+          /^(?:programming[\s,]*(?:dsa|data\s+structures?\s*(?:&|and)\s*algorithms?)?\s*(?:using\s+)?(?:in\s+)?python|pdsa|python)\s*/i,
+          /^(?:modern\s+application\s+development|mad|appdev|app[\s\-]?dev)[\s\-]*[12iI]*\s*/i,
+          /^(?:ml\s+foundations?)\s*/i,
+          /^(?:machine\s+learning)[\s\-]*(?:foundations?|techniques?)?\s*/i,
+          /^(?:business\s+data\s+management|bdm)\s*/i,
+          /^(?:tools\s+in\s+data\s+science|tds)\s*/i,
+          /^(?:software\s+(?:engineering|testing)|se|st)\s+/i,
+          /^(?:iitm\s+(?:bs[c]?|notes?))\s*/i,
+        ];
+
+        for (const pat of subjectPatterns) {
+          clean = clean.replace(pat, "");
+        }
+
+        // Clean up leading separators/noise after stripping: " - ", ":", "--", "–"
+        clean = clean.replace(/^[\s\-–:]+/, "");
+        // Trim excess whitespace
+        clean = clean.replace(/\s{2,}/g, " ").trim();
+        // Capitalize first letter if it got lowercased
+        if (clean.length > 0) {
+          clean = clean.charAt(0).toUpperCase() + clean.slice(1);
+        }
+        return clean || title;
+      }
+
+      /* ===== HELPER: Extract year from PYQ title ===== */
+      function parsePYQYear(title) {
+        // Match patterns like "January 2024", "May 2023", "September 2021", "March 2021", "Jan 2024", "Sep 2024"
+        const m = title.match(
+          /(January|February|March|April|May|June|July|August|September|October|November|December|Jan|Feb|Mar|Apr|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s+(\d{4})/i,
+        );
+        if (m) return m[2]; // return year
+        // Try just a 4-digit year
+        const y = title.match(/\b(20\d{2})\b/);
+        return y ? y[1] : "Other";
+      }
+
+      /* ===== RENDER RESOURCES ===== */
+      function scShowResources(type) {
+        if (!scCurrentSubject) return;
+        const sub = scCurrentSubject;
+        const list = sub.resources[type] || [];
+        const panel = document.getElementById("scPanel");
+
+        let tabsHtml = `
     <div class="sc-tab-bar">
-      <button class="sc-tab ${type==='lectures'?'active':''}" onclick="scShowResources('lectures')">📺 Lectures</button>
-      <button class="sc-tab ${type==='notes'?'active':''}" onclick="scShowResources('notes')">📝 Notes</button>
-      <button class="sc-tab ${type==='pyq'?'active':''}" onclick="scShowResources('pyq')">📄 PYQs</button>
+      <button class="sc-tab ${type === "lectures" ? "active" : ""}" onclick="scShowResources('lectures')">📺 Lectures</button>
+      <button class="sc-tab ${type === "notes" ? "active" : ""}" onclick="scShowResources('notes')">📝 Notes</button>
+      <button class="sc-tab ${type === "pyq" ? "active" : ""}" onclick="scShowResources('pyq')">📄 PYQs</button>
     </div>
   `;
 
-  let contentHtml = '';
+        let contentHtml = "";
 
-  if (!list.length) {
-    contentHtml = `<div class="sc-empty"><div style="font-size:2rem">🔜</div><p style="font-size:0.85rem">No resources added yet — check back soon!</p></div>`;
-  } else if (type === 'notes') {
-    // Group by author
-    const authorMap = {};
-    list.forEach(r => {
-      const author = parseAuthor(r.title) || 'Unknown';
-      if (!authorMap[author]) authorMap[author] = [];
-      authorMap[author].push(r);
-    });
+        if (!list.length) {
+          contentHtml = `<div class="sc-empty"><div style="font-size:2rem">🔜</div><p style="font-size:0.85rem">No resources added yet — check back soon!</p></div>`;
+        } else if (type === "notes") {
+          // Group by author
+          const authorMap = {};
+          list.forEach((r) => {
+            const author = parseAuthor(r.title) || "Unknown";
+            if (!authorMap[author]) authorMap[author] = [];
+            authorMap[author].push(r);
+          });
 
-    const authors = Object.keys(authorMap).sort((a, b) => {
-      if (a === 'Unknown') return 1;
-      if (b === 'Unknown') return -1;
-      return a.localeCompare(b);
-    });
+          const authors = Object.keys(authorMap).sort((a, b) => {
+            if (a === "Unknown") return 1;
+            if (b === "Unknown") return -1;
+            return a.localeCompare(b);
+          });
 
-    contentHtml = authors.map((author, i) => {
-      const notes = authorMap[author];
-      const notesHtml = notes.map(r => {
-        const displayTitle = scCleanTitle(r.title);
-        return `<a href="${r.link}" target="_blank" class="sc-resource-item">
+          contentHtml = authors
+            .map((author, i) => {
+              const notes = authorMap[author];
+              const notesHtml = notes
+                .map((r) => {
+                  const displayTitle = scCleanTitle(r.title);
+                  return `<a href="${r.link}" target="_blank" class="sc-resource-item">
           <span>${displayTitle}</span>
           <div style="display:flex;align-items:center;gap:0.75rem">
-            ${r.badge ? `<span class="sc-badge">${r.badge}</span>` : ''}
+            ${r.badge ? `<span class="sc-badge">${r.badge}</span>` : ""}
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text3)"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </div>
         </a>`;
-      }).join('');
+                })
+                .join("");
 
-      return `<div class="sc-author-card" id="author-${i}">
+              return `<div class="sc-author-card" id="author-${i}">
         <div class="sc-author-header" onclick="toggleAuthor(${i})">
-          <span class="sc-author-name">✦ ${author} <span class="sc-author-count">(${notes.length} ${notes.length===1?'note':'notes'})</span></span>
+          <span class="sc-author-name">✦ ${author} <span class="sc-author-count">(${notes.length} ${notes.length === 1 ? "note" : "notes"})</span></span>
           <svg class="sc-author-chevron" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
         </div>
         <div class="sc-author-body">
           <div class="sc-author-notes">${notesHtml}</div>
         </div>
       </div>`;
-    }).join('');
+            })
+            .join("");
+        } else if (type === "pyq") {
+          // Group by year
+          const yearMap = {};
+          list.forEach((r) => {
+            const year = parsePYQYear(r.title);
+            if (!yearMap[year]) yearMap[year] = [];
+            yearMap[year].push(r);
+          });
 
-  } else if (type === 'pyq') {
-    // Group by year
-    const yearMap = {};
-    list.forEach(r => {
-      const year = parsePYQYear(r.title);
-      if (!yearMap[year]) yearMap[year] = [];
-      yearMap[year].push(r);
-    });
+          // Sort years descending (newest first), "Other" last
+          const years = Object.keys(yearMap).sort((a, b) => {
+            if (a === "Other") return 1;
+            if (b === "Other") return -1;
+            return parseInt(b) - parseInt(a);
+          });
 
-    // Sort years descending (newest first), "Other" last
-    const years = Object.keys(yearMap).sort((a, b) => {
-      if (a === 'Other') return 1;
-      if (b === 'Other') return -1;
-      return parseInt(b) - parseInt(a);
-    });
-
-    contentHtml = years.map(year => {
-      const papers = yearMap[year];
-      const papersHtml = papers.map(r => {
-        const displayTitle = scCleanTitle(r.title);
-        return `<a href="${r.link}" target="_blank" class="sc-resource-item">
+          contentHtml = years
+            .map((year) => {
+              const papers = yearMap[year];
+              const papersHtml = papers
+                .map((r) => {
+                  const displayTitle = scCleanTitle(r.title);
+                  return `<a href="${r.link}" target="_blank" class="sc-resource-item">
           <span>${displayTitle}</span>
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text3)"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </a>`;
-      }).join('');
+                })
+                .join("");
 
-      return `<div class="sc-year-group">
+              return `<div class="sc-year-group">
         <div class="sc-year-label">📅 ${year} <span class="sc-year-count">(${papers.length} papers)</span></div>
         ${papersHtml}
       </div>`;
-    }).join('');
-
-  } else {
-    // Lectures — flat list
-    contentHtml = list.map(r => {
-      const displayTitle = scCleanTitle(r.title);
-      return `<a href="${r.link}" target="_blank" class="sc-resource-item">
+            })
+            .join("");
+        } else {
+          // Lectures — flat list
+          contentHtml = list
+            .map((r) => {
+              const displayTitle = scCleanTitle(r.title);
+              return `<a href="${r.link}" target="_blank" class="sc-resource-item">
         <span>${displayTitle}</span>
         <div style="display:flex;align-items:center;gap:0.75rem">
-          ${r.badge ? `<span class="sc-badge">${r.badge}</span>` : ''}
+          ${r.badge ? `<span class="sc-badge">${r.badge}</span>` : ""}
           <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--text3)"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </div>
       </a>`;
-    }).join('');
-  }
+            })
+            .join("");
+        }
 
-  panel.innerHTML = `
+        panel.innerHTML = `
     <div style="margin-bottom:0.25rem">
       <div class="section-tag" style="margin-bottom:0.5rem">${sub.code}</div>
       <p style="font-size:0.8rem;color:var(--text3);letter-spacing:0.03em">${sub.description}</p>
@@ -794,43 +1903,107 @@ function scShowResources(type) {
     ${tabsHtml}
     <div>${contentHtml}</div>
   `;
-}
+      }
 
-function toggleAuthor(i) {
-  document.getElementById('author-' + i).classList.toggle('open');
-}
+      function toggleAuthor(i) {
+        document.getElementById("author-" + i).classList.toggle("open");
+      }
+    </script>
 
-</script>
-
-
-
-
-
-<footer class="footer">
-  <div class="footer-wave-top"><svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#050A1A"/></svg></div>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="fbrand">
-        <div class="flogo"><img src="assets/LOGO.JPEG" alt="Logo" class="flogo-img"><div><span class="fbrand-name">SUNDARBANS</span><span class="fbrand-sub">IIT Madras BS</span></div></div>
-        <p class="ftagline">Empowering minds, building futures — one student at a time.</p>
-        <div class="fsocial">
-          <a href="#" class="soc-btn"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
-          <a href="#" class="soc-btn"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg></a>
-          <a href="#" class="soc-btn"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M22.46 6c-.85.38-1.78.64-2.75.76a4.8 4.8 0 0 0 2.1-2.66c-.92.55-1.95.95-3.04 1.17a4.77 4.77 0 0 0-8.13 4.35A13.55 13.55 0 0 1 1.64 4.9a4.75 4.75 0 0 0 1.48 6.37 4.74 4.74 0 0 1-2.16-.6v.06c0 2.31 1.65 4.24 3.83 4.68a4.8 4.8 0 0 1-2.15.08 4.78 4.78 0 0 0 4.46 3.31A9.57 9.57 0 0 1 1 20.12 13.5 13.5 0 0 0 8.29 22c8.75 0 13.54-7.25 13.54-13.54 0-.21 0-.41-.01-.61.93-.67 1.74-1.51 2.38-2.47z"/></svg></a>
+    <footer class="footer">
+      <div class="footer-wave-top">
+        <svg
+          viewBox="0 0 1440 80"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z"
+            fill="#050A1A" />
+        </svg>
+      </div>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="fbrand">
+            <div class="flogo">
+              <img src="assets/LOGO.JPEG" alt="Logo" class="flogo-img" />
+              <div>
+                <span class="fbrand-name">SUNDARBANS</span
+                ><span class="fbrand-sub">IIT Madras BS</span>
+              </div>
+            </div>
+            <p class="ftagline">
+              Empowering minds, building futures — one student at a time.
+            </p>
+            <div class="fsocial">
+              <a href="#" class="soc-btn"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  width="18"
+                  height="18">
+                  <path
+                    d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" /></svg
+              ></a>
+              <a href="#" class="soc-btn"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  width="18"
+                  height="18">
+                  <path
+                    d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" /></svg
+              ></a>
+              <a href="#" class="soc-btn"
+                ><svg
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  width="18"
+                  height="18">
+                  <path
+                    d="M22.46 6c-.85.38-1.78.64-2.75.76a4.8 4.8 0 0 0 2.1-2.66c-.92.55-1.95.95-3.04 1.17a4.77 4.77 0 0 0-8.13 4.35A13.55 13.55 0 0 1 1.64 4.9a4.75 4.75 0 0 0 1.48 6.37 4.74 4.74 0 0 1-2.16-.6v.06c0 2.31 1.65 4.24 3.83 4.68a4.8 4.8 0 0 1-2.15.08 4.78 4.78 0 0 0 4.46 3.31A9.57 9.57 0 0 1 1 20.12 13.5 13.5 0 0 0 8.29 22c8.75 0 13.54-7.25 13.54-13.54 0-.21 0-.41-.01-.61.93-.67 1.74-1.51 2.38-2.47z" /></svg
+              ></a>
+            </div>
+          </div>
+          <div class="flinks">
+            <h4>Quick Links</h4>
+            <a href="about.html">About Us</a><a href="teams.html">Our Teams</a
+            ><a href="events.html">Events</a><a href="contact.html">Contact</a>
+          </div>
+          <div class="flinks">
+            <h4>Resources</h4>
+            <a href="study.html">Study Corner</a
+            ><a href="gallery.html">Gallery</a><a href="meetups.html">Meetups</a
+            ><a href="community.html">Communities</a>
+          </div>
+          <div class="fnewsletter">
+            <h4>Stay Updated</h4>
+            <p>Get the latest from Sundarbans House</p>
+            <div class="nform">
+              <input
+                type="email"
+                placeholder="Your email"
+                class="ninput" /><button class="nbtn">→</button>
+            </div>
+            <div class="iit-badge">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/80px-IIT_Madras_Logo.svg.png"
+                alt="IIT Madras"
+                class="iit-logo" /><span>IIT Madras Affiliated</span>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            © 2026 Sundarbans House. Student-managed — not an official IIT
+            Madras website.
+          </p>
+          <div class="fbl">
+            <a href="#">Privacy</a><span>·</span><a href="#">Terms</a
+            ><span>·</span><a href="contact.html">Contact</a>
+          </div>
         </div>
       </div>
-      <div class="flinks"><h4>Quick Links</h4><a href="about.html">About Us</a><a href="teams.html">Our Teams</a><a href="events.html">Events</a><a href="contact.html">Contact</a></div>
-      <div class="flinks"><h4>Resources</h4><a href="study.html">Study Corner</a><a href="gallery.html">Gallery</a><a href="meetups.html">Meetups</a><a href="community.html">Communities</a></div>
-      <div class="fnewsletter">
-        <h4>Stay Updated</h4><p>Get the latest from Sundarbans House</p>
-        <div class="nform"><input type="email" placeholder="Your email" class="ninput"><button class="nbtn">→</button></div>
-        <div class="iit-badge"><img src="https://upload.wikimedia.org/wikipedia/en/thumb/6/69/IIT_Madras_Logo.svg/80px-IIT_Madras_Logo.svg.png" alt="IIT Madras" class="iit-logo"><span>IIT Madras Affiliated</span></div>
-      </div>
-    </div>
-    <div class="footer-bottom"><p>© 2026 Sundarbans House. Student-managed — not an official IIT Madras website.</p><div class="fbl"><a href="#">Privacy</a><span>·</span><a href="#">Terms</a><span>·</span><a href="contact.html">Contact</a></div></div>
-  </div>
-</footer>
-<script src="shared.js"></script>
-
-</body>
+    </footer>
+    <script src="shared.js"></script>
+  </body>
 </html>
