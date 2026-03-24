@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAOS();
   initCounters();
   initPulseScroll();
+  initHeroScrollAnimation();
 });
 
 /* ================= MOBILE MENU ================= */
@@ -431,6 +432,76 @@ window.addEventListener('scroll', () => {
 window.addEventListener('load', () => {
   document.body.classList.add('loaded');
 });
+
+/* ================= HERO SCROLL ANIMATION ================= */
+function initHeroScrollAnimation() {
+  const canvas = document.getElementById('hero-canvas');
+  if (!canvas) return;
+  const context = canvas.getContext('2d');
+  
+  const frameCount = 240;
+  const currentFrame = index => (
+    `assets/frames/ezgif-frame-${(index + 1).toString().padStart(3, '0')}.jpg`
+  );
+
+  const images = [];
+  let framesLoaded = 0;
+
+  for (let i = 0; i < frameCount; i++) {
+    const img = new Image();
+    img.src = currentFrame(i);
+    img.onload = () => {
+      framesLoaded++;
+      if (framesLoaded === 1) {
+        resizeCanvas(); 
+      }
+    };
+    images.push(img);
+  }
+
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    render();
+  }
+
+  window.addEventListener('resize', resizeCanvas);
+
+  function render() {
+    if(!images[0] || !images[0].complete) return;
+    
+    const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+    const scrollFraction = Math.max(0, Math.min(1, window.scrollY / maxScroll));
+    
+    // Smooth frame calculation
+    const frameIndex = Math.min(
+      frameCount - 1,
+      Math.floor(scrollFraction * frameCount)
+    );
+
+    const img = images[frameIndex];
+    if (img && img.complete) {
+      const cw = canvas.width;
+      const ch = canvas.height;
+      const iw = img.width;
+      const ih = img.height;
+      
+      const hRatio = cw / iw;
+      const vRatio = ch / ih;
+      const ratio = Math.max(hRatio, vRatio);
+      
+      const centerShift_x = (cw - iw * ratio) / 2;
+      const centerShift_y = (ch - ih * ratio) / 2;
+      
+      context.clearRect(0, 0, cw, ch);
+      context.drawImage(img, 0, 0, iw, ih, centerShift_x, centerShift_y, iw * ratio, ih * ratio);
+    }
+  }
+
+  window.addEventListener('scroll', () => {
+    requestAnimationFrame(render);
+  });
+}
 
 /* ================= CONSOLE MESSAGE ================= */
 console.log('%cSundarbans House 🌟', 'color: #667eea; font-size: 24px; font-weight: bold;');
