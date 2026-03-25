@@ -1,200 +1,515 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="dark">
+
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>About Us | Sundarbans House</title>
   <link rel="stylesheet" href="style_premium.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
 </head>
+
 <body>
 
-<div id="preloader">
-  <div class="preloader-inner">
-    <div class="preloader-orbit-wrap">
-      <div class="preloader-orbit-ring">
-        <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <path id="orbitPath" d="M 110,110 m -88,0 a 88,88 0 1,1 176,0 a 88,88 0 1,1 -176,0"/>
-          </defs>
-          <text>
-            <textPath href="#orbitPath" startOffset="0%">✦ SUNDARBANS HOUSE · IIT MADRAS BS · EXCELLENCE · </textPath>
-          </text>
+  <div id="preloader">
+    <div class="preloader-inner">
+      <div class="preloader-orbit-wrap">
+        <div class="preloader-orbit-ring">
+          <svg viewBox="0 0 220 220" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <path id="orbitPath" d="M 110,110 m -88,0 a 88,88 0 1,1 176,0 a 88,88 0 1,1 -176,0" />
+            </defs>
+            <text>
+              <textPath href="#orbitPath" startOffset="0%">✦ SUNDARBANS HOUSE · IIT MADRAS BS · EXCELLENCE · </textPath>
+            </text>
+          </svg>
+        </div>
+        <div class="preloader-logo-center">
+          <img src="assets/LOGO.JPEG" alt="Sundarbans" class="preloader-logo-img"
+            onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <span class="preloader-logo-letter" style="display:none">S</span>
+        </div>
+      </div>
+      <div class="preloader-bar">
+        <div class="preloader-fill"></div>
+      </div>
+      <div class="preloader-text">Loading Sundarbans...</div>
+    </div>
+  </div>
+  <div id="cursor-dot"></div>
+  <div id="cursor-ring"></div>
+  <div class="particles-bg" id="particlesBg"></div>
+
+  <!-- SEARCH OVERLAY -->
+  <div class="search-overlay" id="searchOverlay">
+    <div class="search-box">
+      <div class="search-input-row">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="11" cy="11" r="8" />
+          <path d="m21 21-4.35-4.35" />
         </svg>
+        <input type="text" id="searchInput" placeholder="Search pages, resources, events...">
+        <button id="searchClose">✕</button>
       </div>
-      <div class="preloader-logo-center">
-        <img src="assets/LOGO.JPEG" alt="Sundarbans" class="preloader-logo-img" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
-        <span class="preloader-logo-letter" style="display:none">S</span>
+      <div class="search-hint">Press Ctrl+K to open • Esc to close</div>
+      <div id="searchResults"></div>
+    </div>
+  </div>
+
+  <!-- BACK TO TOP -->
+  <button id="backToTop" aria-label="Back to top">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+      <path d="M18 15l-6-6-6 6" />
+    </svg>
+  </button>
+
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="nav-left">
+        <div class="nav-logo-wrapper"><img src="assets/LOGO.JPEG" alt="Logo" class="nav-logo">
+          <div class="logo-glow"></div>
+        </div>
+        <div class="brand-text"><span class="brand-main">SUNDARBANS</span><span class="brand-sub">IIT Madras BS</span>
+        </div>
       </div>
-    </div>
-    <div class="preloader-bar"><div class="preloader-fill"></div></div>
-    <div class="preloader-text">Loading Sundarbans...</div>
-  </div>
-</div>
-<div id="cursor-dot"></div><div id="cursor-ring"></div>
-<div class="particles-bg" id="particlesBg"></div>
-
-<!-- SEARCH OVERLAY -->
-<div class="search-overlay" id="searchOverlay">
-  <div class="search-box">
-    <div class="search-input-row">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      <input type="text" id="searchInput" placeholder="Search pages, resources, events...">
-      <button id="searchClose">✕</button>
-    </div>
-    <div class="search-hint">Press Ctrl+K to open • Esc to close</div>
-    <div id="searchResults"></div>
-  </div>
-</div>
-
-<!-- BACK TO TOP -->
-<button id="backToTop" aria-label="Back to top">
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 15l-6-6-6 6"/></svg>
-</button>
-
-<header class="navbar" id="navbar">
-  <div class="nav-container">
-    <div class="nav-left">
-      <div class="nav-logo-wrapper"><img src="assets/LOGO.JPEG" alt="Logo" class="nav-logo"><div class="logo-glow"></div></div>
-      <div class="brand-text"><span class="brand-main">SUNDARBANS</span><span class="brand-sub">IIT Madras BS</span></div>
-    </div>
-    <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"><span></span><span></span><span></span></button>
-    <nav class="nav-links" id="navLinks">
-      <a href="index.html" class="nav-link"><span>Home</span></a><a href="study.html" class="nav-link"><span>Study Corner</span></a><a href="events.html" class="nav-link"><span>Events</span></a><a href="gallery.html" class="nav-link"><span>Gallery</span></a><a href="meetups.html" class="nav-link"><span>Meetups</span></a><a href="about.html" class="nav-link  active"><span>About</span></a><a href="community.html" class="nav-link"><span>Community</span></a><a href="teams.html" class="nav-link"><span>Teams</span></a><a href="contact.html" class="nav-link"><span>Contact</span></a>
-      <a href="sundarbans/login.html" class="nav-cta-btn"><span>Members Lounge</span><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
-    </nav>
-    <div class="nav-tools">
-      <button class="nav-tool-btn" id="searchBtn" aria-label="Search" title="Search (Ctrl+K)">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
-      </button>
-      <div style="position:relative">
-        <button class="nav-tool-btn" id="notifBtn" aria-label="Notifications">
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
-          <span class="notif-badge" id="notifBadge">3</span>
+      <button class="menu-toggle" id="menuToggle"
+        aria-label="Toggle menu"><span></span><span></span><span></span></button>
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link"><span>Home</span></a><a href="study.html" class="nav-link"><span>Study
+            Corner</span></a><a href="events.html" class="nav-link"><span>Events</span></a><a href="gallery.html"
+          class="nav-link"><span>Gallery</span></a><a href="meetups.html" class="nav-link"><span>Meetups</span></a><a
+          href="about.html" class="nav-link  active"><span>About</span></a><a href="community.html"
+          class="nav-link"><span>Community</span></a><a href="teams.html" class="nav-link"><span>Teams</span></a><a
+          href="contact.html" class="nav-link"><span>Contact</span></a>
+        <a href="sundarbans/login.html" class="nav-cta-btn"><span>Members Lounge</span><svg width="14" height="14"
+            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path d="M5 12h14M12 5l7 7-7 7" />
+          </svg></a>
+      </nav>
+      <div class="nav-tools">
+        <button class="nav-tool-btn" id="searchBtn" aria-label="Search" title="Search (Ctrl+K)">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.35-4.35" />
+          </svg>
         </button>
-        <div class="notif-panel" id="notifPanel">
-          <div class="notif-header"><h4>Notifications</h4><button class="notif-markall" onclick="markAllRead()">Mark all read</button></div>
-          <div class="notif-list" id="notifList"></div>
-          <div class="notif-footer"><a href="#">View all notifications</a></div>
+        <div style="position:relative">
+          <button class="nav-tool-btn" id="notifBtn" aria-label="Notifications">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+              <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+            </svg>
+            <span class="notif-badge" id="notifBadge">3</span>
+          </button>
+          <div class="notif-panel" id="notifPanel">
+            <div class="notif-header">
+              <h4>Notifications</h4><button class="notif-markall" onclick="markAllRead()">Mark all read</button>
+            </div>
+            <div class="notif-list" id="notifList"></div>
+            <div class="notif-footer"><a href="#">View all notifications</a></div>
+          </div>
+        </div>
+        <button class="nav-tool-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle dark/light mode">
+          <span id="themeIcon">☀️</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="page-hero-bg"><img
+        src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&q=80&auto=format&fit=crop" alt="About">
+      <div class="page-hero-overlay"></div>
+    </div>
+    <div class="container page-hero-content">
+      <div class="breadcrumb-nav"><a href="index.html">Home</a><span>/</span><span>About</span></div>
+      <h1>About <span class="tg">Sundarbans</span> House</h1>
+      <p>Our story, mission, and the vibrant community that makes us unique</p>
+    </div>
+  </section>
+
+    <section class="section about-section rs">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text-col">
+          <div class="section-tag">Our Story</div>
+          <h2 class="section-title-xl">Named after the <span class="tg">world's largest mangrove forest</span></h2>
+          <p class="desc">Sundarbans House is one of the vibrant student houses under the IIT Madras BS Online Degree Programme. We are a diverse community of learners, innovators, and leaders spread across India and beyond, united by our passion for knowledge and excellence.</p>
+          <p class="desc">Just as the Sundarbans ecosystem thrives through collaboration of diverse species, our house flourishes through the collective efforts of our members from all walks of life.</p>
+          <p class="desc">From Foundation level students to advanced BS degree scholars — we grow together, learn together, and celebrate together.</p>
+          
+          <h3 style="font-family:Syne,sans-serif;font-size:1.5rem;font-weight:700;margin:2rem 0 1rem;">Building More Than Just a Community</h3>
+          <p class="desc">Sundarbans House is one of the most active and dynamic student communities within the IIT Madras BS Degree Programme. It represents a network of passionate individuals who come together to connect, collaborate, and grow beyond academics.</p>
+          <p class="desc">Inspired by unity and collaboration, the house creates a platform where students support each other and experience a meaningful college life—even in an online environment.</p>
+        </div>
+        <div class="about-img-col">
+          <div class="about-img-stack">
+            <div class="about-img-main"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&q=80&auto=format&fit=crop" alt="Team"></div>
+            <div class="about-img-secondary"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&q=80&auto=format&fit=crop" alt="Study"></div>
+            <div class="about-img-badge">
+              <div class="ib-num">Since 2021</div>
+              <div class="ib-label">Founded</div>
+            </div>
+          </div>
         </div>
       </div>
-      <button class="nav-tool-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle dark/light mode">
-        <span id="themeIcon">☀️</span>
-      </button>
     </div>
-  </div>
-</header>
+  </section>
 
-<section class="page-hero">
-  <div class="page-hero-bg"><img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&q=80&auto=format&fit=crop" alt="About"><div class="page-hero-overlay"></div></div>
-  <div class="container page-hero-content">
-    <div class="breadcrumb-nav"><a href="index.html">Home</a><span>/</span><span>About</span></div>
-    <h1>About <span class="tg">Sundarbans</span> House</h1>
-    <p>Our story, mission, and the vibrant community that makes us unique</p>
-  </div>
-</section>
-
-<section class="section about-section rs">
-  <div class="container">
-    <div class="about-grid">
-      <div class="about-text-col">
-        <div class="section-tag">Our Story</div>
-        <h2 class="section-title-xl">Named after the <span class="tg">world's largest mangrove forest</span></h2>
-        <p class="desc">Sundarbans House is one of the vibrant student houses under the IIT Madras BS Online Degree Programme. We are a diverse community of learners, innovators, and leaders spread across India and beyond, united by our passion for knowledge and excellence.</p>
-        <p class="desc">Just as the Sundarbans ecosystem thrives through collaboration of diverse species, our house flourishes through the collective efforts of our members from all walks of life.</p>
-        <p class="desc">From Foundation level students to advanced BS degree scholars — we grow together, learn together, and celebrate together.</p>
-      </div>
-      <div class="about-img-col">
-        <div class="about-img-stack">
-          <div class="about-img-main"><img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&q=80&auto=format&fit=crop" alt="Team"></div>
-          <div class="about-img-secondary"><img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?w=400&q=80&auto=format&fit=crop" alt="Study"></div>
-          <div class="about-img-badge"><div class="ib-num">Since 2020</div><div class="ib-label">Founded</div></div>
+  <!-- Mission & Vision -->
+  <section class="section rs" style="background:var(--bg2)">
+    <div class="container">
+      <div class="grid-2" style="gap:3rem; align-items: center;">
+        <div>
+          <div class="section-tag">Our Vision</div>
+          <h2 class="section-title-xl">Discover your <span class="tg">potential</span></h2>
+          <p class="desc" style="font-size:1.1rem">To build a <strong>strong, inclusive, and growth-driven community</strong> where every student can discover their potential, develop skills, and emerge as a future leader.</p>
+        </div>
+        <div class="card-base" style="padding: 2.5rem; background: rgba(255,255,255,0.02); border: 1px solid var(--border);">
+          <div class="section-tag">Our Mission</div>
+          <h3 style="font-family:Syne,sans-serif;font-size:1.5rem;font-weight:700;margin-bottom:1rem;color:var(--text);">Driving Excellence Together</h3>
+          <ul class="mission-list">
+            <li>Promote collaboration and teamwork</li>
+            <li>Encourage learning beyond academics</li>
+            <li>Provide opportunities for leadership and innovation</li>
+            <li>Build a supportive and inclusive environment</li>
+          </ul>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<section class="section rs" style="background:var(--bg2)">
-  <div class="container">
-    <div class="sec-hdr">
-      <div class="section-tag">Our Values</div>
-      <h2 class="section-title-xl">What <span class="tg">drives us</span></h2>
-    </div>
-    <div class="grid-3">
-      <div class="card-base rc" style="--card-delay:0.1s;text-align:center">
-        <div style="font-size:2.5rem;margin-bottom:1rem">🎓</div>
-        <h3 style="font-family:Syne,sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:0.5rem">Academic Excellence</h3>
-        <p class="desc" style="margin:0">Committed to fostering a culture of learning, peer mentorship and high academic achievement</p>
+  <!-- What We Do -->
+  <section class="section rs">
+    <div class="container">
+      <div class="sec-hdr">
+        <div class="section-tag">Focus Areas</div>
+        <h2 class="section-title-xl">What <span class="tg">we do</span></h2>
+        <p class="desc" style="max-width:600px; margin: 0 auto;">We focus on holistic growth and ensure no one feels disconnected in an online program.</p>
       </div>
-      <div class="card-base rc" style="--card-delay:0.2s;text-align:center">
-        <div style="font-size:2.5rem;margin-bottom:1rem">🌟</div>
-        <h3 style="font-family:Syne,sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:0.5rem">Community Spirit</h3>
-        <p class="desc" style="margin:0">Building lasting connections across the nation, celebrating diversity and collective growth</p>
-      </div>
-      <div class="card-base rc" style="--card-delay:0.3s;text-align:center">
-        <div style="font-size:2.5rem;margin-bottom:1rem">🚀</div>
-        <h3 style="font-family:Syne,sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:0.5rem">Growth Mindset</h3>
-        <p class="desc" style="margin:0">Empowering every student to reach their full potential through innovation and resilience</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section rs">
-  <div class="container">
-    <div class="sec-hdr">
-      <div class="section-tag">By the Numbers</div>
-      <h2 class="section-title-xl">Our <span class="tg">impact</span></h2>
-    </div>
-    <div class="stats-band" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem">
-      <div class="card-base" style="text-align:center">
-        <div class="stat-number" data-count="5170" style="font-family:Syne,sans-serif;font-size:3rem;font-weight:800;background:linear-gradient(135deg,#4F8EF7,#7C3AED);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">0</div>
-        <div style="color:var(--text2);font-size:0.85rem;margin-top:0.3rem">Active Members</div>
-      </div>
-      <div class="card-base" style="text-align:center">
-        <div class="stat-number" data-count="500" style="font-family:Syne,sans-serif;font-size:3rem;font-weight:800;background:linear-gradient(135deg,#10B981,#059669);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">0</div>
-        <div style="color:var(--text2);font-size:0.85rem;margin-top:0.3rem">Events Hosted</div>
-      </div>
-      <div class="card-base" style="text-align:center">
-        <div class="stat-number" data-count="40" style="font-family:Syne,sans-serif;font-size:3rem;font-weight:800;background:linear-gradient(135deg,#F59E0B,#EF4444);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">0</div>
-        <div style="color:var(--text2);font-size:0.85rem;margin-top:0.3rem">Cities Connected</div>
-      </div>
-      <div class="card-base" style="text-align:center">
-        <div class="stat-number" data-count="3" style="font-family:Syne,sans-serif;font-size:3rem;font-weight:800;background:linear-gradient(135deg,#7C3AED,#EC4899);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent">0</div>
-        <div style="color:var(--text2);font-size:0.85rem;margin-top:0.3rem">Active Communities</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<footer class="footer">
-  <div class="footer-wave-top"><svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#050A1A"/></svg></div>
-  <div class="container">
-    <div class="footer-grid">
-      <div class="fbrand">
-        <div class="flogo"><img src="assets/LOGO.JPEG" alt="Logo" class="flogo-img"><div><span class="fbrand-name">SUNDARBANS</span><span class="fbrand-sub">IIT Madras BS</span></div></div>
-        <p class="ftagline">Empowering minds, building futures — one student at a time.</p>
-        <div class="fsocial">
-          <a href="#" class="soc-btn"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z"/></svg></a>
-          <a href="#" class="soc-btn"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg></a>
-          <a href="#" class="soc-btn"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M22.46 6c-.85.38-1.78.64-2.75.76a4.8 4.8 0 0 0 2.1-2.66c-.92.55-1.95.95-3.04 1.17a4.77 4.77 0 0 0-8.13 4.35A13.55 13.55 0 0 1 1.64 4.9a4.75 4.75 0 0 0 1.48 6.37 4.74 4.74 0 0 1-2.16-.6v.06c0 2.31 1.65 4.24 3.83 4.68a4.8 4.8 0 0 1-2.15.08 4.78 4.78 0 0 0 4.46 3.31A9.57 9.57 0 0 1 1 20.12 13.5 13.5 0 0 0 8.29 22c8.75 0 13.54-7.25 13.54-13.54 0-.21 0-.41-.01-.61.93-.67 1.74-1.51 2.38-2.47z"/></svg></a>
+      <div class="grid-3">
+        <div class="domain-card">
+          <div class="domain-icon">🧑‍🤝‍🧑</div>
+          <div class="domain-content">
+            <h3>Community Building</h3>
+            <p>We connect students through interactions, meetups, and collaborative initiatives, ensuring no one feels disconnected.</p>
+          </div>
+        </div>
+        <div class="domain-card">
+          <div class="domain-icon">📚</div>
+          <div class="domain-content">
+            <h3>Skill Development</h3>
+            <p>From coding and design to communication and management—helping students develop real-world skills.</p>
+          </div>
+        </div>
+        <div class="domain-card">
+          <div class="domain-icon">🎤</div>
+          <div class="domain-content">
+            <h3>Events & Activities</h3>
+            <p>Organizing workshops, webinars, hackathons, and meetups to help students gain confidence and practical exposure.</p>
+          </div>
         </div>
       </div>
-      <div class="flinks"><h4>Quick Links</h4><a href="about.html">About Us</a><a href="teams.html">Our Teams</a><a href="events.html">Events</a><a href="contact.html">Contact</a></div>
-      <div class="flinks"><h4>Resources</h4><a href="study.html">Study Corner</a><a href="gallery.html">Gallery</a><a href="meetups.html">Meetups</a><a href="community.html">Communities</a></div>
-      <div class="fnewsletter">
-        <h4>Stay Updated</h4><p>Get the latest from Sundarbans House</p>
-        <div class="nform"><input type="email" placeholder="Your email" class="ninput"><button class="nbtn">→</button></div>
-        <div class="iit-badge"><img src="assets/IITM-Logo.png" alt="IIT Madras" class="iit-logo"><span>IIT Madras Affiliated</span></div>
+    </div>
+  </section>
+
+  <!-- Opportunities & Domains -->
+  <section class="section rs" style="background:var(--bg2)">
+    <div class="container">
+      <div class="sec-hdr">
+        <div class="section-tag">Pathways</div>
+        <h2 class="section-title-xl">Opportunities & <span class="tg">Domains</span></h2>
+        <p class="desc" style="max-width:600px; margin: 0 auto;">Students can explore and grow in multiple domains. Each domain offers hands-on experience and helps build strong portfolios.</p>
+      </div>
+      <div class="grid-4" style="gap:1.5rem">
+        <div class="card-base rc" style="text-align:center">
+          <div style="font-size:2.5rem;margin-bottom:1rem">💻</div>
+          <h3 style="font-family:Syne,sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:0.5rem">Tech & Development</h3>
+        </div>
+        <div class="card-base rc" style="text-align:center">
+          <div style="font-size:2.5rem;margin-bottom:1rem">🎨</div>
+          <h3 style="font-family:Syne,sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:0.5rem">Design & Creativity</h3>
+        </div>
+        <div class="card-base rc" style="text-align:center">
+          <div style="font-size:2.5rem;margin-bottom:1rem">📈</div>
+          <h3 style="font-family:Syne,sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:0.5rem">Finance & Entrepreneurship</h3>
+        </div>
+        <div class="card-base rc" style="text-align:center">
+          <div style="font-size:2.5rem;margin-bottom:1rem">🤝</div>
+          <h3 style="font-family:Syne,sans-serif;font-size:1.1rem;font-weight:700;margin-bottom:0.5rem">Community & Welfare</h3>
+        </div>
       </div>
     </div>
-    <div class="footer-bottom"><p>© 2026 Sundarbans House. Student-managed — not an official IIT Madras website.</p><div class="fbl"><a href="#">Privacy</a><span>·</span><a href="#">Terms</a><span>·</span><a href="contact.html">Contact</a></div></div>
-  </div>
-</footer>
-<script src="shared.js"></script>
+  </section>
+
+  <!-- What Makes Us Different -->
+  <section class="section rs">
+    <div class="container">
+      <div class="sec-hdr">
+        <div class="section-tag">Our Unique Approach</div>
+        <h2 class="section-title-xl">What makes us <span class="tg">different</span></h2>
+      </div>
+      <div class="grid-2" style="gap:2rem">
+        <div class="domain-card">
+          <div class="domain-icon">🧑‍🤝‍🧑</div>
+          <div class="domain-content">
+            <h3>Strong Community Culture</h3>
+            <p>We believe in <span class="tg">"no student left behind"</span>, creating a supportive ecosystem where collaboration and guidance are always present.</p>
+          </div>
+        </div>
+        <div class="domain-card">
+          <div class="domain-icon">📚</div>
+          <div class="domain-content">
+            <h3>Skill-Driven Growth</h3>
+            <p>We emphasize practical skills over theory, preparing students for real-world challenges.</p>
+          </div>
+        </div>
+        <div class="domain-card">
+          <div class="domain-icon">🎤</div>
+          <div class="domain-content">
+            <h3>Events That Matter</h3>
+            <p>Our events are designed to provide real value—helping students learn, network, and grow.</p>
+          </div>
+        </div>
+        <div class="domain-card">
+          <div class="domain-icon">🌍</div>
+          <div class="domain-content">
+            <h3>Diversity & Inclusion</h3>
+            <p>Students from across India come together to form a vibrant and inclusive community.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats / Our Impact (Redesigned) -->
+  <section id="impact" class="section rs" style="background:var(--bg2)">
+    <div class="container">
+      <div class="sec-hdr">
+        <div class="section-tag">By the Numbers</div>
+        <h2 class="section-title-xl">Our <span class="tg">Impact</span></h2>
+      </div>
+      <div class="stats-band" style="display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;">
+        <div class="impact-card">
+          <div class="stat-number text-grad-blue-purple" data-count="5170">0</div>
+          <div class="stat-label">Active Members</div>
+        </div>
+        <div class="impact-card">
+          <div class="stat-number text-grad-teal-green" data-count="500">0</div>
+          <div class="stat-label">Events Hosted</div>
+        </div>
+        <div class="impact-card">
+          <div class="stat-number text-grad-orange-red" data-count="40">0</div>
+          <div class="stat-label">Cities Connected</div>
+        </div>
+        <div class="impact-card">
+          <div class="stat-number text-grad-pink-purple" data-count="3">0</div>
+          <div class="stat-label">Active Communities</div>
+        </div>
+      </div>
+      
+      <div style="margin-top:4rem; text-align:center; max-width:800px; margin-left:auto; margin-right:auto;">
+        <h3 style="font-family:Syne,sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:1rem;">Leadership & Growth</h3>
+        <p class="desc">Sundarbans House empowers students to lead and take initiative as organizers, coordinators, and team leads—building essential real-world skills.</p>
+        <p class="desc">From celebrations to competitions, we ensure students enjoy a <strong>fun, engaging, and memorable journey</strong> along with their academic growth.</p>
+        <div style="margin-top:2rem; padding: 2rem; border-left: 3px solid var(--accent); background: rgba(212, 160, 23, 0.05); text-align:left;">
+          <h4 style="color:var(--accent); font-size:1rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem;">💬 Our Belief</h4>
+          <p style="font-family:'Cinzel',serif; font-size:1.4rem; font-weight:600; color:var(--text); line-height:1.4; margin:0;">
+            "Sundarbans House is not just a community — it's a family where learning meets belonging."
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Legacy of Leadership -->
+  <section class="section rs">
+    <div class="container">
+      <div class="sec-hdr">
+        <div class="section-tag">Our History</div>
+        <h2 class="section-title-xl">A Legacy of <span class="tg">Leadership</span></h2>
+        <p class="desc" style="max-width:700px; margin: 0 auto;">Over the years, Sundarbans House has been shaped by dedicated leaders whose vision and efforts have built a strong and inspiring community.</p>
+      </div>
+      
+      <div class="legacy-list" style="max-width:900px; margin: 3rem auto 0;">
+        
+        <div class="legacy-item">
+          <div class="legacy-year">📅 2025–26</div>
+          <div class="legacy-roles">
+            <div class="legacy-role-card">
+              <div class="legacy-role-title">👨‍💻 Web Admin</div>
+              <div class="legacy-role-name">Samar Ahmad</div>
+              <div class="legacy-role-links">
+                <a href="mailto:23f3001032@ds.study.iitm.ac.in">Email</a>
+                <a href="https://www.linkedin.com/in/samarahmad10" target="_blank">LinkedIn</a>
+                <span>@thesamarsoldier</span>
+              </div>
+            </div>
+            <div class="legacy-role-card">
+              <div class="legacy-role-title">🎯 Secretary</div>
+              <div class="legacy-role-name">Mannu Yadav</div>
+              <div class="legacy-role-links">
+                <a href="mailto:23f3001972@ds.study.iitm.ac.in">Email</a>
+                <a href="https://www.linkedin.com/in/mannuyadav" target="_blank">LinkedIn</a>
+              </div>
+            </div>
+            <div class="legacy-role-card">
+              <div class="legacy-role-title">🚀 Deputy Secretary</div>
+              <div class="legacy-role-name">Aditya Vaidhya</div>
+              <div class="legacy-role-links">
+                <a href="mailto:23f2000809@ds.study.iitm.ac.in">Email</a>
+                <a href="http://linkedin.com/in/aditya-vaidhya" target="_blank">LinkedIn</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="legacy-item">
+          <div class="legacy-year">📅 2024–25</div>
+          <div class="legacy-roles">
+            <div class="legacy-role-card">
+              <div class="legacy-role-title">🎯 Secretary</div>
+              <div class="legacy-role-name">Shreyansh Mall</div>
+              <div class="legacy-role-links">
+                <a href="mailto:23f1002638@ds.study.iitm.ac.in">Email</a>
+              </div>
+            </div>
+            <div class="legacy-role-card">
+              <div class="legacy-role-title">🚀 Deputy Secretary</div>
+              <div class="legacy-role-name">Divya Chinmay</div>
+              <div class="legacy-role-links">
+                <a href="mailto:23f1002974@ds.study.iitm.ac.in">Email</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="legacy-item">
+          <div class="legacy-year">📅 2023–24</div>
+          <div class="legacy-roles">
+            <div class="legacy-role-card">
+              <div class="legacy-role-title">👨‍💻 Web Admin</div>
+              <div class="legacy-role-name">Ravi Kumawat</div>
+              <div class="legacy-role-links">
+                <a href="mailto:21f1004119@ds.study.iitm.ac.in">Email</a>
+                <a href="https://www.instagram.com/ravikumawat7716/" target="_blank">Instagram</a>
+              </div>
+            </div>
+            <div class="legacy-role-card">
+              <div class="legacy-role-title">🎯 Secretary</div>
+              <div class="legacy-role-name">Abhishek Ojha</div>
+              <div class="legacy-role-links">
+                <a href="mailto:22f1001774@ds.study.iitm.ac.in">Email</a>
+              </div>
+            </div>
+            <div class="legacy-role-card">
+              <div class="legacy-role-title">🚀 Deputy Secretary</div>
+              <div class="legacy-role-name">Ravi Kant</div>
+              <div class="legacy-role-links">
+                <a href="mailto:21f3002792@ds.study.iitm.ac.in">Email</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="legacy-item">
+          <div class="legacy-year">📅 2022–23</div>
+          <div class="legacy-roles">
+            <div class="legacy-role-card">
+              <div class="legacy-role-title">🎯 Secretary</div>
+              <div class="legacy-role-name">Kunal Chaturvedi</div>
+              <div class="legacy-role-links">
+                <a href="mailto:21f1003533@ds.study.iitm.ac.in">Email</a>
+              </div>
+            </div>
+            <div class="legacy-role-card">
+              <div class="legacy-role-title">🚀 Deputy Secretary</div>
+              <div class="legacy-role-name">Abhishek Ojha</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="legacy-item">
+          <div class="legacy-year">📅 2021–22</div>
+          <div class="legacy-roles">
+            <div class="legacy-role-card">
+              <div class="legacy-role-title">👨‍💻 Web Admin</div>
+              <div class="legacy-role-name">Abhigyan Das</div>
+            </div>
+            <div class="legacy-role-card">
+              <div class="legacy-role-title">🎯 Secretary</div>
+              <div class="legacy-role-name">Anshuman</div>
+            </div>
+            <div class="legacy-role-card">
+              <div class="legacy-role-title">🚀 Deputy Secretary</div>
+              <div class="legacy-role-name">Nikhil</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div style="margin-top:4rem; text-align:center; max-width:800px; margin-left:auto; margin-right:auto;">
+        <h3 style="font-family:Syne,sans-serif;font-size:1.8rem;font-weight:700;margin-bottom:1rem;">🌟 Continuing the Legacy</h3>
+        <p class="desc">Each year adds a new chapter to Sundarbans House. With every leader and every member, the community continues to grow stronger, more impactful, and more inspiring.</p>
+      </div>
+    </div>
+  </section>\n\n  <footer class="footer">
+    <div class="footer-wave-top"><svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z" fill="#050A1A" />
+      </svg></div>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="fbrand">
+          <div class="flogo"><img src="assets/LOGO.JPEG" alt="Logo" class="flogo-img">
+            <div><span class="fbrand-name">SUNDARBANS</span><span class="fbrand-sub">IIT Madras BS</span></div>
+          </div>
+          <p class="ftagline">Empowering minds, building futures — one student at a time.</p>
+          <div class="fsocial">
+            <a href="#" class="soc-btn"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path
+                  d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77z" />
+              </svg></a>
+            <a href="#" class="soc-btn"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path
+                  d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z" />
+              </svg></a>
+            <a href="#" class="soc-btn"><svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18">
+                <path
+                  d="M22.46 6c-.85.38-1.78.64-2.75.76a4.8 4.8 0 0 0 2.1-2.66c-.92.55-1.95.95-3.04 1.17a4.77 4.77 0 0 0-8.13 4.35A13.55 13.55 0 0 1 1.64 4.9a4.75 4.75 0 0 0 1.48 6.37 4.74 4.74 0 0 1-2.16-.6v.06c0 2.31 1.65 4.24 3.83 4.68a4.8 4.8 0 0 1-2.15.08 4.78 4.78 0 0 0 4.46 3.31A9.57 9.57 0 0 1 1 20.12 13.5 13.5 0 0 0 8.29 22c8.75 0 13.54-7.25 13.54-13.54 0-.21 0-.41-.01-.61.93-.67 1.74-1.51 2.38-2.47z" />
+              </svg></a>
+          </div>
+        </div>
+        <div class="flinks">
+          <h4>Quick Links</h4><a href="about.html">About Us</a><a href="teams.html">Our Teams</a><a
+            href="events.html">Events</a><a href="contact.html">Contact</a>
+        </div>
+        <div class="flinks">
+          <h4>Resources</h4><a href="study.html">Study Corner</a><a href="gallery.html">Gallery</a><a
+            href="meetups.html">Meetups</a><a href="community.html">Communities</a>
+        </div>
+        <div class="fnewsletter">
+          <h4>Stay Updated</h4>
+          <p>Get the latest from Sundarbans House</p>
+          <div class="nform"><input type="email" placeholder="Your email" class="ninput"><button class="nbtn">→</button>
+          </div>
+          <div class="iit-badge"><img src="assets/IITM-Logo.png" alt="IIT Madras" class="iit-logo"><span>IIT Madras
+              Affiliated</span></div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 Sundarbans House. Student-managed — not an official IIT Madras website.</p>
+        <div class="fbl"><a href="#">Privacy</a><span>·</span><a href="#">Terms</a><span>·</span><a
+            href="contact.html">Contact</a></div>
+      </div>
+    </div>
+  </footer>
+  <script src="shared.js"></script>
 
 </body>
+
 </html>

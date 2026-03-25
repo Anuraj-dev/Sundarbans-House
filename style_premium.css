@@ -2908,3 +2908,240 @@ body.video-bg-mode .navbar {
     columns: 1;
   }
 }
+
+/* ===== ABOUT PAGE SPECIFIC STYLES ===== */
+.impact-card {
+  background: rgba(13, 11, 8, 0.9);
+  padding: 2.5rem 1.5rem;
+  border-radius: var(--rad);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.impact-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212, 160, 23, 0.3);
+  box-shadow: 0 12px 40px rgba(212, 160, 23, 0.15);
+}
+
+.impact-card .stat-number {
+  font-family: "Syne", sans-serif;
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.impact-card .stat-label {
+  color: var(--text2);
+  font-size: 0.95rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: none;
+}
+
+/* Gradients for numbers based on the reference image */
+.text-grad-blue-purple {
+  background: linear-gradient(135deg, #4F8EF7, #7C3AED);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-grad-teal-green {
+  background: linear-gradient(135deg, #2dd4bf, #059669);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-grad-orange-red {
+  background: linear-gradient(135deg, #fb923c, #ef4444);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-grad-pink-purple {
+  background: linear-gradient(135deg, #f472b6, #d946ef);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Domain & What We Do cards */
+.domain-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--rad);
+  padding: 1.5rem;
+  text-align: left;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.domain-card:hover {
+  border-color: var(--accent);
+  background: var(--surface2);
+  transform: translateY(-3px);
+}
+
+.domain-icon {
+  font-size: 2rem;
+  background: rgba(212, 160, 23, 0.1);
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+
+.domain-content h3 {
+  font-family: "Cinzel", serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text);
+}
+
+.domain-content p {
+  color: var(--text2);
+  font-size: 0.9rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* Legacy Section */
+.legacy-list {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.legacy-item {
+  border-left: 2px solid var(--border);
+  padding-left: 1.5rem;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.legacy-item:hover {
+  border-left-color: var(--accent);
+}
+
+.legacy-item::before {
+  content: '';
+  position: absolute;
+  left: -7px;
+  top: 0;
+  width: 12px;
+  height: 12px;
+  background: var(--bg);
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+}
+
+.legacy-year {
+  color: var(--accent);
+  font-family: "Cinzel", serif;
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: -5px;
+}
+
+.legacy-roles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.legacy-role-card {
+  background: rgba(255,255,255,0.02);
+  padding: 1.25rem;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.05);
+  transition: all 0.2s;
+}
+
+.legacy-role-card:hover {
+  background: rgba(212, 160, 23, 0.05);
+  border-color: rgba(212, 160, 23, 0.2);
+}
+
+.legacy-role-title {
+  font-size: 0.85rem;
+  color: var(--text2);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legacy-role-name {
+  font-weight: 600;
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+.legacy-role-links {
+  margin-top: 0.5rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.legacy-role-links a {
+  color: var(--accent);
+  font-size: 0.85rem;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.legacy-role-links a:hover {
+  text-decoration: underline;
+  color: var(--gold-light);
+}
+
+.legacy-role-links span {
+  color: var(--text3);
+  font-size: 0.85rem;
+}
+
+/* Mission & Vision specific */
+.mission-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.mission-list li {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 0.75rem;
+  color: var(--text2);
+}
+
+.mission-list li::before {
+  content: '✦';
+  position: absolute;
+  left: 0;
+  top: 2px;
+  color: var(--accent);
+  font-size: 0.85rem;
+}
