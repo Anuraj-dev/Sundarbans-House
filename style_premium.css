@@ -2063,8 +2063,8 @@ body.video-bg-mode .navbar {
 
 /* ===== LIGHT THEME (gold adapted) ===== */
 [data-theme="light"] {
-  --bg: #f8f9fa;
-  --bg2: #ffffff;
+  --bg: #fbf7ee;
+  --bg2: #fefcf5;
   --surface: rgba(0, 0, 0, 0.03);
   --surface2: rgba(0, 0, 0, 0.06);
   --border: rgba(0, 0, 0, 0.1);
@@ -2098,7 +2098,7 @@ body.video-bg-mode .navbar {
 }
 
 [data-theme="light"] .btn-hero-secondary:hover {
-  background: #ffffff;
+  background: #fefcf5;
   border-color: var(--border);
 }
 
@@ -2107,7 +2107,7 @@ body.video-bg-mode .navbar {
 }
 
 [data-theme="light"] #preloader {
-  background: #f8f9fa;
+  background: #fbf7ee;
 }
 
 [data-theme="light"] .footer {
@@ -2139,11 +2139,11 @@ body.video-bg-mode .navbar {
 }
 
 [data-theme="light"] .search-box {
-  background: #ffffff;
+  background: #fefcf5;
 }
 
 [data-theme="light"] .notif-panel {
-  background: #ffffff;
+  background: #fefcf5;
 }
 
 [data-theme="light"] .about-section {
